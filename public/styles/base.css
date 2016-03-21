@@ -1,0 +1,21 @@
+.shadow {
+  -webkit-box-shadow: 0px 7px 43px -9px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 7px 43px -9px rgba(0,0,0,0.75);
+  box-shadow: 0px 7px 43px -9px rgba(0,0,0,0.75);
+}
+
+.nice-input {
+  width: 80%;
+  height: 35px;
+  margin-bottom: 10px;
+}
+
+.nice-button {
+  width: 50%;
+  height: 35px;
+  background: #4288CC;
+  text-align: center;
+  line-height: 35px;
+  color: white;
+  margin-top: 10px;
+}
