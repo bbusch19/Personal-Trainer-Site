@@ -1,12 +1,12 @@
 angular.module('personalTrainer').service('mainSvc', function($http) {
 
   //API calls to users
-  this.getUser = function() {
-    return $http({
-      method: 'GET',
-      url: 
-    })
-  }
+  // this.getUser = function() {
+  //   return $http({
+  //     method: 'GET',
+  //     url:
+  //   })
+  // }
 
   //API calls to the dailys collection
   this.getDailys = function() {
