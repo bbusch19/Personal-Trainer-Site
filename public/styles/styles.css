@@ -1,17 +1,3 @@
-html {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-*, *:before, *:after {
-  box-sizing: inherit;
-}
-
-body {
-  padding: 0;
-  margin: 0;
-}
-
 .main-container {
   width: 100%;
   height: 100vh;
@@ -36,24 +22,27 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  position: relative;
+  padding-top: 30px;
 }
 
 .login-signup {
-  position: absolute;
-  bottom: 0;
-  left: 80px;
   color: #4288CC;
+  margin-bottom: -50px;
 }
 
 .signup-box {
   width: 300px;
-  height: 200px;
+  height: 250px;
   background: white;
   margin-top: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  padding-top: 20px;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  background: none;
 }

@@ -5,26 +5,33 @@
     <strong>Let's Get Started</strong>
   </p> -->
 
-      <div class="login-box shadow">
+      <div class="login-box shadow" ng-show="loginForm">
 
       <input class="nice-input" placeholder="email" />
-      <input class="nice-input" placeholder="password" />
+      <input class="nice-input" type="password" placeholder="password" />
+      
       <div class="nice-button shadow">
         Login
       </div>
 
 
-    <p class="login-signup">
-      <span>Login</span>/<span ng-click="toggleSignup(showSignupForm)">Signup</span>
-    </p>
-  </div>
+      <p class="login-signup">
+        <span>Need an account?</span> <span ng-click="toggleSignup(showSignupForm); toggleLogin(loginForm)">Signup</span>
+      </p>
+    </div>
 
   <div class="signup-box shadow" ng-show="showSignupForm">
 
   <input class="nice-input" placeholder="enter a valid email" />
-  <input class="nice-input" placeholder="enter a password" />
+  <input class="nice-input" type="password" placeholder="enter a password" />
   <div class="nice-button shadow">
     Submit
   </div>
+
+  <p class="login-signup">
+    <span>Already a member?</span> <span ng-click="toggleSignup(showSignupForm); toggleLogin(loginForm)">Login</span>
+  </p>
+
+</div>
 
 </main>
