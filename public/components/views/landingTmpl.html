@@ -7,20 +7,28 @@
 
       <div class="login-box shadow" ng-show="loginForm">
 
+        <p id="sign-in">
+          Sign In
+        </p>
+
       <input class="nice-input" placeholder="email" />
       <input class="nice-input" type="password" placeholder="password" />
-      
+
       <div class="nice-button shadow">
         Login
       </div>
 
 
       <p class="login-signup">
-        <span>Need an account?</span> <span ng-click="toggleSignup(showSignupForm); toggleLogin(loginForm)">Signup</span>
+        <span>Need an account?</span> <span class="pointer" ng-click="toggleSignup(showSignupForm); toggleLogin(loginForm)">Signup</span>
       </p>
     </div>
 
   <div class="signup-box shadow" ng-show="showSignupForm">
+
+    <p id="create">
+      Create an Account
+    </p>
 
   <input class="nice-input" placeholder="enter a valid email" />
   <input class="nice-input" type="password" placeholder="enter a password" />
@@ -29,7 +37,7 @@
   </div>
 
   <p class="login-signup">
-    <span>Already a member?</span> <span ng-click="toggleSignup(showSignupForm); toggleLogin(loginForm)">Login</span>
+    <span>Already a member?</span> <span class="pointer" ng-click="toggleSignup(showSignupForm); toggleLogin(loginForm)">Login</span>
   </p>
 
 </div>
