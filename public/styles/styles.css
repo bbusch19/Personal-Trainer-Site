@@ -1,19 +1,31 @@
 .main-container {
   width: 100%;
   height: 100vh;
-  background: url('./pics/GymPic.jpg') no-repeat;
+  background: url('./kettle.jpg') no-repeat;
   background-size: cover;
+  background-position: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  font-family: sans-serif;
 }
 
-.get-started {
-  font-size: 70px;
-  margin: 15px;
-  color: white;
+.land-nav {
+  height: 80px;
+  position: absolute;
+  top: 0;
+  background: rgba(0, 0, 0, 0.8);
 }
+
+/*.never-stop {
+  font-size: 140px;
+  top: 150px;
+  margin: 0;
+  color: white;
+  font-family: sans-serif;
+  font-weight: 900;
+}*/
 
 .login-box {
   height: 250px;
@@ -51,6 +63,7 @@
     margin-top: 0;
     margin-bottom: 10px;
     font-size: 20px;
+    font-weight: 400;
 }
 
 #create {

@@ -1,45 +1,21 @@
 <main class="main-container">
 
-
-  <!-- <p class="get-started">
-    <strong>Let's Get Started</strong>
-  </p> -->
+    <nav class="land-nav">
+      <div id="home-icon">Home</div>
+      <div class="nav-buttons" ng-click="toggleLogin(loginForm)">Login</div>
+      <div class="nav-buttons" ui-sref="feed">Social</div>
+      <div class="nav-buttons" ui-sref="daily">About</div>
+    </nav>
 
       <div class="login-box shadow" ng-show="loginForm">
-
         <p id="sign-in">
           Sign In
         </p>
-
-      <input class="nice-input" placeholder="email" />
-      <input class="nice-input" type="password" placeholder="password" />
-
-      <div class="nice-button shadow">
-        Login
+        <input class="nice-input" placeholder="email" />
+        <input class="nice-input" type="password" placeholder="password" />
+        <div class="fb shadow">
+          Sign in <em>w/</em> Facebook
+        </div>
       </div>
-
-
-      <p class="login-signup">
-        <span>Need an account?</span> <span class="pointer" ng-click="toggleSignup(showSignupForm); toggleLogin(loginForm)">Signup</span>
-      </p>
-    </div>
-
-  <div class="signup-box shadow" ng-show="showSignupForm">
-
-    <p id="create">
-      Create an Account
-    </p>
-
-  <input class="nice-input" placeholder="enter a valid email" />
-  <input class="nice-input" type="password" placeholder="enter a password" />
-  <div class="nice-button shadow">
-    Submit
-  </div>
-
-  <p class="login-signup">
-    <span>Already a member?</span> <span class="pointer" ng-click="toggleSignup(showSignupForm); toggleLogin(loginForm)">Login</span>
-  </p>
-
-</div>
 
 </main>
