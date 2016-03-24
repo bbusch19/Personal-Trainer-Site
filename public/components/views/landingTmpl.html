@@ -13,9 +13,30 @@
         </p>
         <input class="nice-input" placeholder="email" />
         <input class="nice-input" type="password" placeholder="password" />
+        <!-- <a class="fb shadow" href="/auth/facebook/">Login with Facebook</a> -->
         <div class="fb shadow">
-          Sign in <em>w/</em> Facebook
+          Sign in
         </div>
+        <p>
+          Need an accout? <span class="sign-up" ng-click="showSignup(signUp)">Signup</span>
+        </p>
+
+      </div>
+
+      <div class="login-box shadow" ng-show="signUp">
+        <p id="sign-in">
+          Create an Account
+        </p>
+        <input class="nice-input" placeholder="enter an email address" />
+        <input class="nice-input" type="password" placeholder="enter a password" />
+        <!-- <a class="fb shadow" href="/auth/facebook/">Login with Facebook</a> -->
+        <div class="fb shadow">
+          Sign in
+        </div>
+        <p>
+          Back to <span class="sign-up" ng-click="showLoginAgain(loginForm)">Login</span>
+        </p>
+
       </div>
 
 </main>

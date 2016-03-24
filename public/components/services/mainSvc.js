@@ -16,11 +16,26 @@ angular.module('personalTrainer').service('mainSvc', function($http) {
     })
   }
 
+  this.postDaily = function(postBody) {
+    return $http({
+      method: 'POST',
+      data: postBody,
+      url: '/api/daily'
+    })
+  }
+
   //api calls to the status' collection
   this.getStatus = function() {
     return $http({
       method: 'GET',
       url: "http://localhost:3000/api/feed"
+    })
+  }
+
+  this.fbLogin = function() {
+    return $http({
+      method: 'GET',
+      url: 'http://localhost:3000/auth/facebook'
     })
   }
 

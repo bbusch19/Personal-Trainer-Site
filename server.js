@@ -1,6 +1,11 @@
 var express = require('express');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
+var session = require('express-session');
+var cors = require('cors');
+var passport = require('passport');
+var FacebookStrategy = require('passport-facebook').Strategy
+var keys = require('./keys.js');
 var userCtrl = require('./controllers/userCtrl.js');
 var dailyCtrl = require('./controllers/dailyCtrl.js');
 var feedCtrl = require('./controllers/feedCtrl.js');
@@ -20,6 +25,9 @@ mongoose.connection.once('open', function() {
 //middleware
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/public'));
+app.use(cors());
+
+
 
 //user API stuff
 app.post('/api/users', userCtrl.create);
@@ -27,7 +35,9 @@ app.get('/api/users/:id', userCtrl.read);
 
 //daily API stuff
 app.post('/api/daily', dailyCtrl.create);
+
 app.get('/api/daily', dailyCtrl.read);
+
 
 //feed API stuff
 app.post('/api/feed', feedCtrl.create);

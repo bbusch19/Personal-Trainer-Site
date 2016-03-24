@@ -3,11 +3,11 @@ var Schema = mongoose.Schema;
 
 var dailySchema = new Schema({
   name: {
-    first: {type: String, required: true},
-    last: {type: String, required: true}
+    first: {type: String, required: false},
+    last: {type: String, required: false}
   },
-  date: {type: String},
-  body: {type: String}
-})
+  date: {type: Date, default: Date.now},
+  body: {type: String, required: true}
+}, {timestamps: true})
 
 module.exports = mongoose.model('Daily', dailySchema);
