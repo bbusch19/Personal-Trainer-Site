@@ -17,7 +17,7 @@
     </form>
 
     <div ng-repeat="daily in dailys">
-      {{daily}}
+      {{daily.name.first}} {{daily.name.last}} {{daily.body}} {{daily.createdAt | date: short}};
     </div>
 
 </main>

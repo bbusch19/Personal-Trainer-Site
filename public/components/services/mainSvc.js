@@ -1,14 +1,9 @@
 angular.module('personalTrainer').service('mainSvc', function($http) {
 
-  //API calls to users
-  // this.getUser = function() {
-  //   return $http({
-  //     method: 'GET',
-  //     url:
-  //   })
-  // }
 
-  //API calls to the dailys collection
+  ////////////////////
+  //DAILY API CALLS//
+  ///////////////////
   this.getDailys = function() {
     return $http({
       method: 'GET',
@@ -24,7 +19,9 @@ angular.module('personalTrainer').service('mainSvc', function($http) {
     })
   }
 
-  //api calls to the status' collection
+  /////////////////////
+  //STATUS API CALLS//
+  ////////////////////
   this.getStatus = function() {
     return $http({
       method: 'GET',
@@ -32,11 +29,13 @@ angular.module('personalTrainer').service('mainSvc', function($http) {
     })
   }
 
-  this.fbLogin = function() {
+  this.postStatus = function(status) {
     return $http({
-      method: 'GET',
-      url: 'http://localhost:3000/auth/facebook'
+      method: 'POST',
+      data: status,
+      url: '/api/feed'
     })
   }
+
 
 })

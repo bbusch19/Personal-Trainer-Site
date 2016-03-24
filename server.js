@@ -5,6 +5,7 @@ var session = require('express-session');
 var cors = require('cors');
 var passport = require('passport');
 var FacebookStrategy = require('passport-facebook').Strategy
+var LocalStrategy = require('passport-local').Strategy;
 var keys = require('./keys.js');
 var userCtrl = require('./controllers/userCtrl.js');
 var dailyCtrl = require('./controllers/dailyCtrl.js');
@@ -13,7 +14,9 @@ var port = 3000;
 var app = express();
 
 
-//connecting to the database
+///////////////////////////////
+//CONNECTING TO THE DATABASE//
+/////////////////////////////
 mongoose.connect('mongodb://localhost/deenafarmer', function(err) {
   if (err) throw err;
 });
@@ -22,26 +25,39 @@ mongoose.connection.once('open', function() {
 });
 
 
-//middleware
+
+///////////////
+//MIDDLEWARE//
+/////////////
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/public'));
 app.use(cors());
 
 
-
-//user API stuff
+//////////////
+//USER API///
+////////////
 app.post('/api/users', userCtrl.create);
 app.get('/api/users/:id', userCtrl.read);
 
-//daily API stuff
+
+////////////////////
+//DAILY API STUFF//
+//////////////////
 app.post('/api/daily', dailyCtrl.create);
-
 app.get('/api/daily', dailyCtrl.read);
+app.delete('/api/daily/:id', dailyCtrl.delete);
 
-
-//feed API stuff
+///////////////////
+//FEED API STUFF//
+/////////////////
 app.post('/api/feed', feedCtrl.create);
 app.get('/api/feed', feedCtrl.read);
+app.delete('/api/feed/:id', feedCtrl.delete);
+
+
+
+
 
 app.listen(port, function() {
   console.log('Listening on port ' + port);

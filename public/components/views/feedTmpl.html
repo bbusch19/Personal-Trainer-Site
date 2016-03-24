@@ -7,6 +7,15 @@
       <div class="nav-buttons" ui-sref="daily">Daily</div>
     </nav>
 
+    <form ng-submit="postStatus(obj)">
+      <div class="input-group">
+        <textarea placeholder="Post a new workout/announcement..." ng-model="obj.body"></textarea>
+        <span class="input-group-btn">
+          <button type="submit" class="btn btn-primary">Add New</button>
+        </span>
+      </div>
+    </form>
+
     <div ng-repeat="status in statuses">
       {{status}}
     </div>

@@ -6,6 +6,7 @@ mainSvc.getDailys().then(function(response) {
 
 $scope.postDaily = function(postBody) {
   mainSvc.postDaily(postBody);
+  $('textarea').val('');
 }
 
 })

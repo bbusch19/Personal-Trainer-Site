@@ -15,5 +15,12 @@ module.exports = {
       if (err) res.status(500).json(err);
       else res.status(200).json(response);
     })
+  },
+  delete: function(req, res, next) {
+    var id = req.params.id;
+    Daily.findByIdAndRemove(id, function(err, response) {
+      if (err) res.status(500).json(err);
+      else res.status(200).json(response);
+    })
   }
 }
