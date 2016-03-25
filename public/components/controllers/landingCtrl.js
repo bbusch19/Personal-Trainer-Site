@@ -1,6 +1,10 @@
 angular.module('personalTrainer').controller('landingCtrl', function($scope, mainSvc, $state) {
 
-//toggle the login and signup forms
+
+
+////////////////////////
+//TOGGLE LOGIN/SIGNUP//
+//////////////////////
 $scope.loginForm = false;
 $scope.toggleLogin = function(loginForm) {
   $scope.loginForm = !loginForm;
@@ -18,11 +22,12 @@ $scope.showLoginAgain = function(loginForm) {
   $scope.signUp = false;
 }
 
-$scope.fbLogin = function() {
-  mainSvc.fbLogin().then(function() {
-    // $state.go('daily');
-  })
+//make a new user
+$scope.createUser = function(user) {
+  console.log(user);
 }
+
+
 
 
 })

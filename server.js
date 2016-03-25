@@ -60,6 +60,5 @@ app.delete('/api/feed/:id', feedCtrl.delete);
 
 
 app.listen(port, function() {
-  console.log('Listening on port ' + port);
-  console.log('All clear, Captain!');
+  console.log('There\'s a party on port ' + port);
 })

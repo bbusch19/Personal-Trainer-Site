@@ -2,11 +2,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var dailySchema = new Schema({
-  name: {
-    first: {type: String, required: false},
-    last: {type: String, required: false}
-  },
-  date: {type: Date, default: Date.now},
+  user: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
   body: {type: String, required: true}
 }, {timestamps: true})
 

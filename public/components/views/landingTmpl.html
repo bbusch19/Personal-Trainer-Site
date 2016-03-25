@@ -23,20 +23,24 @@
 
       </div>
 
-      <div class="login-box shadow" ng-show="signUp">
-        <p id="sign-in">
-          Create an Account
-        </p>
-        <input class="nice-input" placeholder="enter an email address" />
-        <input class="nice-input" type="password" placeholder="enter a password" />
-        <!-- <a class="fb shadow" href="/auth/facebook/">Login with Facebook</a> -->
-        <div class="fb shadow">
-          Sign in
-        </div>
-        <p>
-          Back to <span class="sign-up" ng-click="showLoginAgain(loginForm)">Login</span>
-        </p>
+        <div class="signup-box shadow" ng-show="signUp">
+          <p id="sign-in">
+            Create an Account
+          </p>
+          <input class="nice-input" placeholder="First Name" ng-model="user.name.first"/>
+          <input class="nice-input" placeholder="Last Name" ng-model="user.name.last"/>
+          <input class="nice-input" placeholder="enter an email address" ng-model="user.email"/>
+          <input class="nice-input" type="password" placeholder="enter a password" ng-model="user.password"/>
+          <div class="fb shadow" ng-click="createUser(user)">
+            Sign in
+          </div>
+          <p>
+            Back to <span class="sign-up" ng-click="showLoginAgain(loginForm)">Login</span>
+          </p>
 
-      </div>
+        </div>
+
+
+
 
 </main>
