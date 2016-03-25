@@ -1,5 +1,17 @@
-angular.module('personalTrainer').service('mainSvc', function($http) {
+angular.module('personalTrainer').service('mainSvc', function($http, $state) {
 
+  ///////////////////
+  //USER API CALLS//
+  /////////////////
+  this.userLogin = function(user) {
+    return $http({
+      method: 'POST',
+      data: user,
+      url: '/login'
+    }).success(function() {
+      $state.go('daily');
+    })
+  }
 
   ////////////////////
   //DAILY API CALLS//

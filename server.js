@@ -70,7 +70,7 @@ app.use(passport.session());
 
 //AUTH api
 app.post('/login', passport.authenticate('local', {failureRedirect: '/landing'}), function(req, res) {
-  res.status(200).send({msg: 'okay!', user: req.session.passport})
+  res.status(200).send({msg: 'okay!', user: req.session.passport});
 })
 
 app.get('/logout', function( req, res ) {

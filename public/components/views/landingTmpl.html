@@ -7,14 +7,17 @@
       <div class="nav-buttons" ui-sref="daily">About</div>
     </nav>
 
-      <div class="login-box shadow" ng-show="loginForm">
+    <div class="curtain" ng-show="curtain" ng-click="toggleLogin(loginForm, curtain)">
+
+    </div>
+
+      <div class="login-box shadow modal" ng-show="loginForm">
         <p id="sign-in">
           Sign In
         </p>
-        <input class="nice-input" placeholder="email" />
-        <input class="nice-input" type="password" placeholder="password" />
-        <!-- <a class="fb shadow" href="/auth/facebook/">Login with Facebook</a> -->
-        <div class="fb shadow">
+        <input class="nice-input" placeholder="email" ng-model="user.email"/>
+        <input class="nice-input" type="password" placeholder="password" ng-model="user.password"/>
+        <div class="fb shadow" ng-click="userLogin(user)">
           Sign in
         </div>
         <p>
@@ -23,15 +26,15 @@
 
       </div>
 
-        <div class="signup-box shadow" ng-show="signUp">
+        <div class="signup-box shadow modal" ng-show="signUp">
           <p id="sign-in">
             Create an Account
           </p>
-          <input class="nice-input" placeholder="First Name" ng-model="user.name.first"/>
-          <input class="nice-input" placeholder="Last Name" ng-model="user.name.last"/>
-          <input class="nice-input" placeholder="enter an email address" ng-model="user.email"/>
-          <input class="nice-input" type="password" placeholder="enter a password" ng-model="user.password"/>
-          <div class="fb shadow" ng-click="createUser(user)">
+          <input class="nice-input" placeholder="First Name" ng-model="newUser.name.first"/>
+          <input class="nice-input" placeholder="Last Name" ng-model="newUser.name.last"/>
+          <input class="nice-input" placeholder="enter an email address" ng-model="newUser.email"/>
+          <input class="nice-input" type="password" placeholder="enter a password" ng-model="newUser.password"/>
+          <div class="fb shadow" ng-click="createUser(newUser)">
             Sign in
           </div>
           <p>
