@@ -10,6 +10,7 @@ var keys = require('./keys.js');
 var userCtrl = require('./controllers/userCtrl.js');
 var dailyCtrl = require('./controllers/dailyCtrl.js');
 var feedCtrl = require('./controllers/feedCtrl.js');
+var User = require('./models/User.js');
 var port = 3000;
 var app = express();
 
@@ -25,6 +26,34 @@ mongoose.connection.once('open', function() {
 });
 
 
+/////////
+//AUTH//
+///////
+passport.use(new LocalStrategy({
+  usernameField: 'email'
+},
+  function(email, password, cb) {
+    User.findOne({email: email}, function(err, user) {
+      console.log(user);
+      // user = user[0];
+      if (err) { return cb(err); }
+      if (!user) { return cb(null, false); }
+      if (user.password != password) { return cb(null, false); }
+      return cb(null, user);
+    });
+  }));
+
+  passport.serializeUser(function(user, cb) {
+    cb(null, user.id);
+  });
+
+  passport.deserializeUser(function(id, cb) {
+    User.findById(id, function (err, user) {
+      if (err) { return cb(err); }
+      cb(null, user);
+    });
+  });
+
 
 ///////////////
 //MIDDLEWARE//
@@ -32,7 +61,24 @@ mongoose.connection.once('open', function() {
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/public'));
 app.use(cors());
+app.use(session({secret: keys.sessionSecret, resave: false, saveUninitialized: false}));
 
+// Initialize Passport and restore authentication state, if any, from the
+// session.
+app.use(passport.initialize());
+app.use(passport.session());
+
+//AUTH api
+app.post('/login', passport.authenticate('local', {failureRedirect: '/landing'}), function(req, res) {
+  res.status(200).send({msg: 'okay!', user: req.session.passport})
+})
+
+app.get('/logout', function( req, res ) {
+	req.logout();
+	req.session.destroy();
+  console.log('Logged Out MoFucka');
+	res.redirect('/landing');
+});
 
 //////////////
 //USER API///
