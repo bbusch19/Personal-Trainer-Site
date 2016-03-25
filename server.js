@@ -80,7 +80,7 @@ app.get('/logout', function( req, res ) {
 	res.redirect('/landing');
 });
 
-//////////////
+///////////////
 //USER API///
 ////////////
 app.post('/api/users', userCtrl.create);
