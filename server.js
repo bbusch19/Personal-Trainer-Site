@@ -39,6 +39,7 @@ app.use(cors());
 ////////////
 app.post('/api/users', userCtrl.create);
 app.get('/api/users/:id', userCtrl.read);
+app.put('/api/users/:id', userCtrl.update);
 
 
 ////////////////////
