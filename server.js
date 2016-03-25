@@ -26,22 +26,42 @@ mongoose.connection.once('open', function() {
 });
 
 
-/////////
-//AUTH//
-///////
-passport.use(new LocalStrategy({
+///////////////
+//LOGIN AUTH//
+/////////////
+passport.use('local-login', new LocalStrategy({
   usernameField: 'email'
 },
   function(email, password, cb) {
     User.findOne({email: email}, function(err, user) {
       console.log(user);
-      // user = user[0];
       if (err) { return cb(err); }
       if (!user) { return cb(null, false); }
       if (user.password != password) { return cb(null, false); }
       return cb(null, user);
     });
   }));
+
+  ////////////////
+  //SIGNUP AUTH//
+  //////////////
+  passport.use('local-signup', new LocalStrategy({
+    usernameField: 'username',
+    passwordField: 'password',
+    passReqToCallback: true
+  }, function(req, username, password, done) {
+      User.findOne({'username': username}, function(err, user) {
+          if (err) return done(err);
+          if (user) return done(null, false);
+          else {
+              var newUser = new User(req.body);
+              newUser.save(function(err, response) {
+                  if (err) return done(null, err);
+                  else return done(null, response);
+              })
+          }
+      })
+  }))
 
   passport.serializeUser(function(user, cb) {
     cb(null, user.id);
@@ -68,8 +88,10 @@ app.use(session({secret: keys.sessionSecret, resave: false, saveUninitialized: f
 app.use(passport.initialize());
 app.use(passport.session());
 
-//AUTH api
-app.post('/login', passport.authenticate('local', {failureRedirect: '/landing'}), function(req, res) {
+/////////////
+//AUTH API//
+///////////
+app.post('/login', passport.authenticate('local-login', {failureRedirect: '/landing'}), function(req, res) {
   res.status(200).send({msg: 'okay!', user: req.session.passport});
 })
 
@@ -79,6 +101,11 @@ app.get('/logout', function( req, res ) {
   console.log('Logged Out MoFucka');
 	res.redirect('/landing');
 });
+
+app.post('/signup', passport.authenticate('local-signup', {failureRedirect: '/landing'}), function(req, res) {
+    res.status(200).send('success!');
+});
+
 
 ///////////////
 //USER API///
