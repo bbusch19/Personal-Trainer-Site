@@ -34,10 +34,9 @@ passport.use('local-login', new LocalStrategy({
 },
   function(email, password, cb) {
     User.findOne({email: email}, function(err, user) {
-      console.log(user);
       if (err) { return cb(err); }
       if (!user) { return cb(null, false); }
-      if (user.password != password) { return cb(null, false); }
+      if (!user.validatePassword(password)) { console.log('password wrong'); return cb(null, false); }
       return cb(null, user);
     });
   }));
@@ -55,6 +54,7 @@ passport.use('local-login', new LocalStrategy({
           if (user) return done(null, false);
           else {
               var newUser = new User(req.body);
+              newUser.password = newUser.generateHash(password);
               newUser.save(function(err, response) {
                   if (err) return done(null, err);
                   else return done(null, response);
@@ -119,14 +119,14 @@ app.put('/api/users/:id', userCtrl.update);
 //DAILY API STUFF//
 //////////////////
 app.post('/api/daily', dailyCtrl.create);
-app.get('/api/daily', dailyCtrl.read);
+app.get('/api/daily', userCtrl.loggedIn, dailyCtrl.read);
 app.delete('/api/daily/:id', dailyCtrl.delete);
 
 ///////////////////
 //FEED API STUFF//
 /////////////////
 app.post('/api/feed', feedCtrl.create);
-app.get('/api/feed', feedCtrl.read);
+app.get('/api/feed', userCtrl.loggedIn, feedCtrl.read);
 app.delete('/api/feed/:id', feedCtrl.delete);
 
 

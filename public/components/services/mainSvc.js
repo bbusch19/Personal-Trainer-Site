@@ -20,7 +20,11 @@ angular.module('personalTrainer').service('mainSvc', function($http, $state) {
     return $http({
       method: 'GET',
       url: 'http://localhost:3000/api/daily'
-    })
+  }).success(function(response) {
+      if (typeof response.redirect == 'string') {
+          $state.go('landing');
+      }
+  })
   }
 
   this.postDaily = function(postBody) {

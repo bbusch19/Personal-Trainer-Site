@@ -22,6 +22,11 @@ $scope.showLoginAgain = function(loginForm) {
   $scope.loginForm = !loginForm;
   $scope.signUp = false;
 }
+$scope.hideAllForms = function(loginForm, signUp, curtain) {
+    $scope.loginForm = false;
+    $scope.signUp = false;
+    $scope.curtain = false;
+}
 
 //make a new user
 $scope.createUser = function(newUser) {

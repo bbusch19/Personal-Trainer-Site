@@ -27,5 +27,10 @@ module.exports = {
       if (err) res.status(500).json(err);
       else res.status(200).json(response);
     })
-  }
+   },
+   loggedIn: function(req, res, next) {
+       if (req.user) next();
+       else res.send({redirect: '/landing'});
+   }
+
 }
