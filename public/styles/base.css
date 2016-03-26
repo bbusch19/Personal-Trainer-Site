@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Merriweather:900,400);
+
 html {
   box-sizing: border-box;
   padding: 0;
@@ -32,7 +34,6 @@ header {
 textarea {
   margin-top: 10px;
   resize: none;
-  /*margin-left: 50px;*/
   width: 500px;
   height: 100px;
   -moz-border-bottom-colors: none;
@@ -40,13 +41,8 @@ textarea {
   -moz-border-right-colors: none;
   -moz-border-top-colors: none;
   background: none repeat scroll 0 0 rgba(0, 0, 0, 0.07);
-  /*border-color: -moz-use-text-color #FFFFFF #FFFFFF -moz-use-text-color;*/
   border-image: none;
   border: 1px solid lightgrey;
-  /*border-radius: 6px 6px 6px 6px;*/
-  /*border-style: none solid solid none;
-  border-width: medium 1px 1px medium;*/
-  /*box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12) inset;*/
   color: #555555;
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 1em;
@@ -66,6 +62,14 @@ textarea:focus {
   height: 100vh;
   background: none;
   text-align: center;
+}
+
+#motivate {
+    font-family: 'Merriweather', serif;
+    font-size: 90px;
+    color: white;
+    font-weight: 900;
+    z-index: 0;
 }
 
 #home-icon {
