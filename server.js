@@ -45,11 +45,11 @@ passport.use('local-login', new LocalStrategy({
   //SIGNUP AUTH//
   //////////////
   passport.use('local-signup', new LocalStrategy({
-    usernameField: 'username',
+    usernameField: 'email',
     passwordField: 'password',
     passReqToCallback: true
-  }, function(req, username, password, done) {
-      User.findOne({'username': username}, function(err, user) {
+}, function(req, email, password, done) {
+      User.findOne({'email': email}, function(err, user) {
           if (err) return done(err);
           if (user) return done(null, false);
           else {
@@ -64,7 +64,6 @@ passport.use('local-login', new LocalStrategy({
   }))
 
   passport.serializeUser(function(user, cb) {
-      console.log(user);
     cb(null, user.id);
   });
 

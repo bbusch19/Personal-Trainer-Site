@@ -30,7 +30,7 @@ $scope.hideAllForms = function(loginForm, signUp, curtain) {
 
 //make a new user
 $scope.createUser = function(newUser) {
-  console.log(newUser);
+    mainSvc.newUser(newUser);
 }
 
 $scope.userLogin = function(user) {
