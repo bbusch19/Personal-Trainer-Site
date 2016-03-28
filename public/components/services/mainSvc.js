@@ -13,6 +13,14 @@ angular.module('personalTrainer').service('mainSvc', function($http, $state) {
     })
   }
 
+  this.newUser = function(newUser) {
+      return $http({
+          method: 'POST',
+          data: newUser,
+          url: '/signup'
+      })
+  }
+
   ////////////////////
   //DAILY API CALLS//
   ///////////////////
@@ -42,6 +50,10 @@ angular.module('personalTrainer').service('mainSvc', function($http, $state) {
     return $http({
       method: 'GET',
       url: "http://localhost:3000/api/feed"
+    }).success(function(response) {
+        if (typeof response.redirect == 'string') {
+            $state.go('landing');
+        }
     })
   }
 

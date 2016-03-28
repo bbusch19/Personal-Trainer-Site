@@ -54,7 +54,7 @@ passport.use('local-login', new LocalStrategy({
           if (user) return done(null, false);
           else {
               var newUser = new User(req.body);
-              newUser.password = newUser.generateHash(password);
+              newUser.password = newUser.generateHash(req.body.password);
               newUser.save(function(err, response) {
                   if (err) return done(null, err);
                   else return done(null, response);
@@ -64,6 +64,7 @@ passport.use('local-login', new LocalStrategy({
   }))
 
   passport.serializeUser(function(user, cb) {
+      console.log(user);
     cb(null, user.id);
   });
 
@@ -98,12 +99,12 @@ app.post('/login', passport.authenticate('local-login', {failureRedirect: '/land
 app.get('/logout', function( req, res ) {
 	req.logout();
 	req.session.destroy();
-  console.log('Logged Out MoFucka');
+    console.log('Logged Out MoFucka');
 	res.redirect('/landing');
 });
 
 app.post('/signup', passport.authenticate('local-signup', {failureRedirect: '/landing'}), function(req, res) {
-    res.status(200).send('success!');
+    res.status(200).json(req.body);
 });
 
 
