@@ -8,7 +8,7 @@ angular.module('personalTrainer').service('mainSvc', function($http, $state) {
       method: 'POST',
       data: user,
       url: '/login'
-    }).success(function() {
+  }).success(function() {
       $state.go('daily');
     })
   }
