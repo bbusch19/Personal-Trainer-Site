@@ -3,6 +3,7 @@ var Daily = require('../models/Daily.js');
 
 module.exports = {
   create: function(req, res, next) {
+    req.body.user = req.user;
     var daily = new Daily(req.body);
     daily.save(function(err, response) {
       if (err) res.status(500).json(err);

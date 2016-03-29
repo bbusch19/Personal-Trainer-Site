@@ -17,7 +17,8 @@
     </form>
 
     <div ng-repeat="daily in dailys">
-      {{daily.name.first}} {{daily.name.last}} {{daily.body}} {{daily.createdAt | date: short}};
+     {{daily.user.name.first}} {{daily.body}} {{daily.createdAt | date: short}} &nbsp&nbsp<span ng-if="currentUser._id === daily.user._id">X</span>
     </div>
+
 
 </main>

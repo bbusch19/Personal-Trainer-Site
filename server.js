@@ -91,7 +91,7 @@ app.use(passport.session());
 /////////////
 //AUTH API//
 ///////////
-app.post('/login', passport.authenticate('local-login', {failureRedirect: '/landing'}), function(req, res) {
+app.post('/login', passport.authenticate('local-login', {failureRedirect: '/#/landing'}), function(req, res) {
   res.status(200).send({msg: 'okay!', user: req.session.passport});
 })
 
@@ -102,7 +102,7 @@ app.get('/logout', function( req, res ) {
 	res.redirect('/landing');
 });
 
-app.post('/signup', passport.authenticate('local-signup', {failureRedirect: '/landing'}), function(req, res) {
+app.post('/signup', passport.authenticate('local-signup', {failureRedirect: '/#/landing'}), function(req, res) {
     res.status(200).json(req.body);
 });
 
@@ -112,13 +112,14 @@ app.post('/signup', passport.authenticate('local-signup', {failureRedirect: '/la
 ////////////
 app.post('/api/users', userCtrl.create);
 app.get('/api/users/:id', userCtrl.read);
+app.get('/api/user/current', userCtrl.currentUser);
 app.put('/api/users/:id', userCtrl.update);
 
 
 ////////////////////
 //DAILY API STUFF//
 //////////////////
-app.post('/api/daily', dailyCtrl.create);
+app.post('/api/daily', userCtrl.loggedIn, dailyCtrl.create);
 app.get('/api/daily', userCtrl.loggedIn, dailyCtrl.read);
 app.delete('/api/daily/:id', dailyCtrl.delete);
 

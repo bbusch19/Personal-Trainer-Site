@@ -30,10 +30,14 @@ module.exports = {
    },
    loggedIn: function(req, res, next) {
        if (req.user){
-       console.log(req.user);
        next();
     }
        else res.send({redirect: '/landing'});
+   },
+   currentUser: function(req, res, next) {
+       if (req.user) {
+           res.status(200).send(req.user);
+       }
    }
 
 }

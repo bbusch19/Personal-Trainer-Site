@@ -18,7 +18,16 @@ angular.module('personalTrainer').service('mainSvc', function($http, $state) {
           method: 'POST',
           data: newUser,
           url: '/signup'
+      }).success(function() {
+          $state.go('daily');
       })
+  }
+
+  this.getProfile = function() {
+     return $http ({
+         method: 'GET',
+         url: '/api/user/current'
+     })
   }
 
   ////////////////////

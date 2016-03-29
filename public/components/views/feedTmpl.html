@@ -17,7 +17,7 @@
     </form>
 
     <div ng-repeat="status in statuses">
-      {{status}}
+      {{status.user.name.first}} {{status.body}} {{status.createdAt | date: short}};
     </div>
 
 </main>

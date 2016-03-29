@@ -6,4 +6,9 @@ var dailySchema = new Schema({
   body: {type: String, required: true}
 }, {timestamps: true})
 
+dailySchema.pre('find', function(next) {
+    this.populate('user');
+    next();
+})
+
 module.exports = mongoose.model('Daily', dailySchema);
