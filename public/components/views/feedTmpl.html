@@ -17,7 +17,7 @@
     </form>
 
     <div ng-repeat="status in statuses">
-      {{status.user.name.first}} {{status.body}} {{status.createdAt | date: short}};
+      {{status.user.name.first}} {{status.body}} {{status.createdAt | date: short}}  <span ng-click="deleteStatus(status._id)" ng-if="currentUser._id === status.user._id">X</span>
     </div>
 
 </main>

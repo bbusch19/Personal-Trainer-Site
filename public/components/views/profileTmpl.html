@@ -7,8 +7,41 @@
       <div class="nav-buttons" ui-sref="daily">Daily</div>
     </nav>
 
+    <section class="prof-pic-section">
+        <div class="prof-pic"></div>
+        <div class="edit-icon" ng-click="showEditPane(curtain, editPane)"></div>
+    </section>
+
+    <section class="bio-section">
+        <div class="bio">
+            Bio: {{profile.bio}}
+        </div>
+    </section>
     <div>
         {{profile}}
     </div>
+
+    <div class="curtain animated fadeIn" ng-if="curtain" ng-click="hideAll()">
+
+    </div>
+
+    <section class="edit-profile modal animated fadeIn" ng-if="editPane">
+        <div class="prof-pic-section">
+            <div class="prof-pic">Profile Pic Here</div>
+            <input value="{{profile.name.first}}"/>
+            <input value="{{profile.name.last}}"/>
+        </div>
+        <div class="security-info">
+            <input value="{{profile.email}}"/>
+            <input value="{{profile.password}}" type="password"/>
+        </div>
+        <div class="bio-section">
+            Bio:<br />
+            <textarea>
+                {{profile.bio}}
+            </textarea>
+        </div>
+        <div class="submit shadow">Submit</div>
+    </section>
 
 </main>

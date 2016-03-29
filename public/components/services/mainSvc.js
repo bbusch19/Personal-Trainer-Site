@@ -52,6 +52,13 @@ angular.module('personalTrainer').service('mainSvc', function($http, $state) {
     })
   }
 
+  this.deleteDaily = function(id) {
+      return $http({
+          method: 'DELETE',
+          url: '/api/daily/' + id
+      })
+  }
+
   /////////////////////
   //STATUS API CALLS//
   ////////////////////
@@ -72,6 +79,13 @@ angular.module('personalTrainer').service('mainSvc', function($http, $state) {
       data: status,
       url: '/api/feed'
     })
+  }
+
+  this.deleteStatus = function(id) {
+      return $http({
+          method: 'DELETE',
+          url: '/api/feed/' + id
+      })
   }
 
 

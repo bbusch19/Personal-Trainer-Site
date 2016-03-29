@@ -7,7 +7,7 @@
       <div id ="current-icon" class="nav-buttons" ui-sref="daily">Daily</div>
     </nav>
 
-    <form ng-submit="postDaily(obj)">
+    <form ng-submit="postDaily(obj)" ng-if="inputBox">
       <div class="input-group">
         <textarea placeholder="Post a new workout/announcement..." ng-model="obj.body"></textarea>
         <span class="input-group-btn">
@@ -17,7 +17,7 @@
     </form>
 
     <div ng-repeat="daily in dailys">
-     {{daily.user.name.first}} {{daily.body}} {{daily.createdAt | date: short}} &nbsp&nbsp<span ng-if="$parent.currentUser._id === daily.user._id">X</span>
+     {{daily.user.name.first}} {{daily.body}} {{daily.createdAt | date: short}} &nbsp&nbsp<span ng-click="deleteDaily(daily._id)" ng-if="currentUser._id === daily.user._id">X</span>
     </div>
 
 
