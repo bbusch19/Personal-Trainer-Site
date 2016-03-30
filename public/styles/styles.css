@@ -67,7 +67,6 @@
     background: none;
     display: flex;
     align-items: center;
-    justify-content: space-between;
     border-bottom: 1px solid lightgrey;
     margin-top: 10px;
 }
@@ -78,12 +77,6 @@
     background: none;
     border: 1px solid black;
     margin-left: 10px;
-}
-
-.security-info {
-    height: 15vh;
-    width: 100%;
-    border-bottom: 1px solid lightgrey;
 }
 
 .bio-section {

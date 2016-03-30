@@ -236,14 +236,88 @@ textarea:focus {
 .edit-profile {
     z-index: 20;
     background-color: white;
-    width: 90%;
-    height: 90vh;
+    width: 700px;
+    min-width: 400px;
+    height: auto;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
-    overflow-y: scroll;
     animation-delay: .3s;
+    padding: 10px;
+}
+
+.edit-header {
+    height: 5vh;
+    width: 100%;
+    font-family: 'Merriweather', serif;
+    font-size: 20px;
+    border-bottom: 1px solid lightgrey;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+
+.edit-container {
+    height: auto;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.profile-pic-container {
+    height: 60vh;
+    width: 200px;
+    padding-top: 10px;
+}
+
+.info-container {
+    width: 450px;
+    height: 60vh;
+    padding-top: 10px;
+}
+
+.personal-info-header {
+    width: 100%;
+    font-family: 'Merriweather', serif;
+    font-size: 15px;
+    text-align: left;
+}
+
+.profile-pic-edit {
+    height: 150px;
+    width: 150px;
+    background: url('./runner.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+    border: 2px solid lightgrey;
+    border-radius: 100px;
+    margin: auto;
+    margin-bottom: 7px;
+}
+
+.fileUpload {
+    position: relative;
+    overflow: hidden;
+    margin: auto;
+    width: 80%;
+    height: 35px;
+    background: #476CB7;
+    text-align: center;
+    line-height: 35px;
+    color: white;
+}
+.fileUpload input.upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 35px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
 }
 
 .submit {
