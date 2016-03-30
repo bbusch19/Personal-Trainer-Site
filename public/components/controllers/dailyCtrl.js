@@ -1,4 +1,4 @@
-angular.module('personalTrainer').controller('dailyCtrl', function($scope, mainSvc) {
+angular.module('personalTrainer').controller('dailyCtrl', function($scope, mainSvc, $state) {
 
 mainSvc.getProfile().then(function(response) {
     $scope.currentUser = response.data;
@@ -7,7 +7,6 @@ mainSvc.getProfile().then(function(response) {
 
 mainSvc.getDailys().then(function(response) {
   $scope.dailys = response.data;
-  // if($scope.dailys.)
 })
 
 $scope.postDaily = function(postBody) {

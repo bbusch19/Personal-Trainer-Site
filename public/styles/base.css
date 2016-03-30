@@ -285,6 +285,47 @@ textarea:focus {
     text-align: left;
 }
 
+.personal-info {
+    width: 100%;
+    height: auto;
+    text-align: left;
+    padding-top: 10px;
+    padding-left: 10px;
+    font-family: 'Merriweather', serif;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.personal-input {
+    width: 60%;
+    height: 35px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.small-submit {
+    width: 125px;
+    height: 35px;
+    background: #476CB7;
+    text-align: center;
+    line-height: 35px;
+    color: white;
+    cursor: pointer;
+    float: left;
+}
+
+.cancel {
+    width: 100px;
+    height: 35px;
+    background: none;
+    border: 1px solid grey;
+    text-align: center;
+    line-height: 35px;
+    cursor: pointer;
+    float: left;
+    margin-left: 5px;
+}
+
 .profile-pic-edit {
     height: 150px;
     width: 150px;
@@ -295,6 +336,12 @@ textarea:focus {
     border-radius: 100px;
     margin: auto;
     margin-bottom: 7px;
+}
+
+.buttons {
+    width: 100%;
+    height: 35px;
+    padding-left: 10px;
 }
 
 .fileUpload {

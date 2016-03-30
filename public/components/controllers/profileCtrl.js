@@ -17,4 +17,8 @@ angular.module('personalTrainer').controller('profileCtrl', function($scope, mai
       $scope.editPane = false;
   }
 
+  $scope.updateProfile = function(profile) {
+      mainSvc.updateProfile(profile);
+  }
+
 })

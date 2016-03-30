@@ -20,10 +20,7 @@ module.exports = {
     })
   },
   update: function(req, res, next) {
-    var query;
-    if (req.params.id) query = {_id: req.params.id};
-    else query = {};
-    User.findByIdAndUpdate(query, req.body, function(err, response) {
+    User.findByIdAndUpdate(req.body._id, req.body, function(err, response) {
       if (err) res.status(500).json(err);
       else res.status(200).json(response);
     })

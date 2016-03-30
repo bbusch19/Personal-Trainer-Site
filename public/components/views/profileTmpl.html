@@ -37,6 +37,17 @@
             </div>
             <div class="info-container">
                 <div class="personal-info-header">Personal Info</div>
+                <div class="personal-info">
+                    First name<input class="personal-input" ng-model="profile.name.first"/>
+                    Last name:<input class="personal-input" ng-model="profile.name.last"/>
+                    Bio:<input class="personal-input" ng-model="profile.bio"/>
+                    Email:<input class="personal-input" ng-model="profile.email"/>
+                    <!-- Password:<input class="personal-input" type="password" ng-model="profile.password"/> -->
+                </div>
+                <div class="buttons">
+                    <div class="small-submit" ng-click="updateProfile(profile)">Submit</div>
+                    <div class="cancel" ng-click="hideAll()">Cancel</div>
+                </div>
             </div>
         </div>
     </section>

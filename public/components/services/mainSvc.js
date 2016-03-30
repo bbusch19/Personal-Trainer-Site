@@ -30,6 +30,16 @@ angular.module('personalTrainer').service('mainSvc', function($http, $state) {
      })
   }
 
+  this.updateProfile = function(profile) {
+      return $http({
+          method: 'PUT',
+          data: profile,
+          url: '/api/users/' + profile._id
+      }).success(function() {
+          $state.reload('profile');
+      })
+  }
+
   ////////////////////
   //DAILY API CALLS//
   ///////////////////
