@@ -7,17 +7,24 @@
       <div class="nav-buttons" ui-sref="daily">Daily</div>
     </nav>
 
-    <form ng-submit="postStatus(obj)">
-      <div class="input-group">
-        <textarea placeholder="Post a new workout/announcement..." ng-model="obj.body"></textarea>
-        <span class="input-group-btn">
-          <button type="submit" class="btn btn-primary">Add New</button>
-        </span>
-      </div>
-    </form>
+    <!-- <div class="page-h1">My Feed</div> -->
 
-    <div ng-repeat="status in statuses">
+
+      <div class="input-group">
+          <div class="nametag"> Post as <span>{{currentUser.name.first}}</span></div>
+        <textarea placeholder="What's on your mind?" ng-model="obj.body"></textarea>
+        <div id="button-holder">
+            <div class="small-submit-right" ng-click="postStatus(obj)">
+                Submit
+            </div>
+        </div>
+        <!-- <span class="input-group-btn">
+          <button  ng-click="postStatus(obj)">Add New</button>
+        </span> -->
+      </div>
+
+    <!-- <div ng-repeat="status in statuses">
       {{status.user.name.first}} {{status.body}} {{status.createdAt | date: short}}  <span ng-click="deleteStatus(status._id)" ng-if="currentUser._id === status.user._id">X</span>
-    </div>
+    </div> -->
 
 </main>

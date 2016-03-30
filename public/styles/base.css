@@ -1,5 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Merriweather:900,400);
 
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,700);
+
 @-webkit-keyframes fadeInUp {
   from {
     opacity: 0;
@@ -62,18 +64,20 @@ html {
 body {
   padding: 0;
   margin: 0;
+  background: #ededef;
 }
 
 nav {
   width: 100%;
   height: 80px;
   background: rgba(0, 0, 0, 0.9);
-  font-family: sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 200;
   padding-right: 20px;
-  -webkit-box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.75);
-  -moz-box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.75);
-  box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.75);
+  margin-bottom: 20px;
+  /*-webkit-box-shadow: 0px 0px 7px 2px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 7px 2px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 7px 2px rgba(0,0,0,0.75);*/
 }
 
 header {
@@ -85,7 +89,8 @@ header {
 }
 
 textarea {
-  margin-top: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
   resize: none;
   width: 500px;
   height: 100px;
@@ -93,15 +98,46 @@ textarea {
   -moz-border-left-colors: none;
   -moz-border-right-colors: none;
   -moz-border-top-colors: none;
-  background: none repeat scroll 0 0 rgba(0, 0, 0, 0.07);
-  border-image: none;
+  background: none;
   border: 1px solid lightgrey;
+  border-radius: 5px;
   color: #555555;
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 1em;
-  line-height: 1.4em;
-  padding: 20px 8px;
-  transition: background-color 0.2s ease 0s;
+}
+
+.page-h1 {
+    width: 80%;
+    font-size: 50px;
+    margin: auto;
+    color: lightgrey;
+    border-bottom: 1px solid lightgrey;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    padding-bottom: 10px;
+}
+
+.input-group {
+    width: 600px;
+    height: auto;
+    font-family: 'Roboto', sans-serif;
+    background: white;
+    margin: auto;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    border-radius: 5px;
+	box-shadow: 0 7px 6px -6px #777;
+}
+
+.input-group span {
+    color: #476CB7;
+}
+
+.nametag {
+    width: 500px;
+    margin: auto;
+    margin-bottom: 0;
+    text-align: left;
 }
 
 
@@ -132,10 +168,11 @@ textarea:focus {
   height: 100vh;
   background: none;
   text-align: center;
+  overflow-y: scroll;
 }
 
 #motivate {
-    font-family: 'Merriweather', serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 90px;
     color: white;
     font-weight: 900;
@@ -236,6 +273,7 @@ textarea:focus {
 .edit-profile {
     z-index: 20;
     background-color: white;
+    font-family: 'Roboto', sans-serif;
     width: 700px;
     min-width: 400px;
     height: auto;
@@ -250,7 +288,7 @@ textarea:focus {
 .edit-header {
     height: 5vh;
     width: 100%;
-    font-family: 'Merriweather', serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 20px;
     border-bottom: 1px solid lightgrey;
     display: flex;
@@ -280,7 +318,7 @@ textarea:focus {
 
 .personal-info-header {
     width: 100%;
-    font-family: 'Merriweather', serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 15px;
     text-align: left;
 }
@@ -291,7 +329,7 @@ textarea:focus {
     text-align: left;
     padding-top: 10px;
     padding-left: 10px;
-    font-family: 'Merriweather', serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 12px;
     margin-bottom: 10px;
 }
@@ -312,6 +350,18 @@ textarea:focus {
     color: white;
     cursor: pointer;
     float: left;
+}
+
+.small-submit-right {
+    width: 125px;
+    height: 35px;
+    background: #476CB7;
+    text-align: center;
+    line-height: 35px;
+    color: white;
+    cursor: pointer;
+    float: left;
+    border-radius: 5px;
 }
 
 .cancel {
@@ -342,6 +392,12 @@ textarea:focus {
     width: 100%;
     height: 35px;
     padding-left: 10px;
+}
+
+#button-holder {
+    width: 500px;
+    height: 35px;
+    margin: auto;
 }
 
 .fileUpload {
@@ -378,7 +434,6 @@ textarea:focus {
     margin-top: 10px;
     cursor: pointer;
 }
-
 
 #current-icon {
   background: rgba(255, 0, 0, 0.8);
