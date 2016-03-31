@@ -79,7 +79,8 @@ passport.use('local-login', new LocalStrategy({
 ///////////////
 //MIDDLEWARE//
 /////////////
-app.use(bodyParser.json());
+app.use(bodyParser.json({limit: '50mb'}));
+app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
 app.use(express.static(__dirname + '/public'));
 app.use(cors());
 app.use(session({secret: keys.sessionSecret, resave: false, saveUninitialized: false}));

@@ -6,7 +6,6 @@ angular.module('personalTrainer').directive('fileread', function (imagesService,
         profile: '='
     },
     link: function (scope, elem, attrs) {
-        console.log(scope.profile);
       elem.bind("change", function (changeEvent) {
         var reader = new FileReader();
 
