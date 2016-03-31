@@ -11,6 +11,7 @@ var userCtrl = require('./controllers/userCtrl.js');
 var dailyCtrl = require('./controllers/dailyCtrl.js');
 var feedCtrl = require('./controllers/feedCtrl.js');
 var User = require('./models/User.js');
+var Amazon = require('./controllers/awsController.js');
 var port = 3000;
 var app = express();
 
@@ -98,7 +99,6 @@ app.post('/login', passport.authenticate('local-login', {failureRedirect: '/#/la
 app.get('/logout', function( req, res ) {
 	req.logout();
 	req.session.destroy();
-    console.log('Logged Out MoFucka');
 	res.redirect('/landing');
 });
 
@@ -130,6 +130,8 @@ app.post('/api/feed', feedCtrl.create);
 app.get('/api/feed', userCtrl.loggedIn, feedCtrl.read);
 app.delete('/api/feed/:id', feedCtrl.delete);
 
+//PIC API
+app.post('/api/newimage', Amazon.saveImage);
 
 
 

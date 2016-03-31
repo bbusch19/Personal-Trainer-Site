@@ -9,7 +9,7 @@
 
     <div class="page-h1">Daily Workout</div>
 
-    <div class="input-group">
+    <div class="input-group" ng-if="inputBox">
         <div class="nametag"> Post as <span>{{currentUser.name.first}}</span></div>
       <textarea placeholder="What's on your mind?" ng-model="obj.body"></textarea>
       <div id="button-holder">

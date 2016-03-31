@@ -404,9 +404,9 @@ textarea:focus {
 .profile-pic-edit {
     height: 150px;
     width: 150px;
-    background: url('./runner.jpg') no-repeat;
+    /*background: url('./runner.jpg') no-repeat;
     background-size: cover;
-    background-position: center;
+    background-position: center;*/
     border: 2px solid lightgrey;
     border-radius: 100px;
     margin: auto;
