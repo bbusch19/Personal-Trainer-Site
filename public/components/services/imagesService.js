@@ -1,6 +1,5 @@
 angular.module('personalTrainer').service('imagesService', function($http) {
-    this.storeImage = function(imageData, fileName) {
-        console.log('in service');
+    this.storeImage = function(imageData, fileName, email) {
         var imageExtension = imageData.split(';')[0].split('/');
         imageExtension = imageExtension[imageExtension.length - 1];
 
@@ -8,9 +7,8 @@ angular.module('personalTrainer').service('imagesService', function($http) {
           imageName: fileName,
           imageBody: imageData,
           imageExtension: imageExtension,
-          userEmail: 'breiden.busch@gmail.com'
+          userEmail: email
       };
-      console.log(newImage);
       return $http.post('/api/newimage', newImage);
   };
 })

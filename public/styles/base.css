@@ -435,7 +435,6 @@ textarea:focus {
 .avatar {
     width: 100px;
     height: 100px;
-    border: 1px solid white;
     float: left;
 }
 

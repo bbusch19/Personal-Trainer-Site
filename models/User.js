@@ -8,7 +8,7 @@ var userSchema = new Schema({
     first: {type: String, required: false},
     last: {type: String, required: false}
   },
-  image: {type: String, required: false},
+  image: {type: String, required: false, default: 'https://www.drupal.org/files/profile_default.jpg'},
   email: {type: String, required: false},
   password: {type: String, required: false},
   admin: {type: Boolean, default: false, required: true},

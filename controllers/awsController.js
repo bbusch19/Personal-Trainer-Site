@@ -18,7 +18,7 @@ exports.saveImage = function (req, res) {
   var buf = new Buffer(req.body.imageBody.replace(/^data:image\/\w+;base64,/, ""), 'base64');
 
   // bucketName var below crates a "folder" for each user
-  var bucketName = 'deenafarmer/';
+  var bucketName = 'deenafarmer/' + req.body.userEmail;
   var params = {
       Bucket: bucketName
     , Key: req.body.imageName
