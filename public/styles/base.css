@@ -70,11 +70,14 @@ body {
 nav {
   width: 100%;
   height: 80px;
-  background: rgba(0, 0, 0, 0.9);
+  background: rgba(0, 0, 0, 0.8);
   font-family: 'Roboto', sans-serif;
-  font-weight: 200;
+  font-weight: 400;
   padding-right: 20px;
   margin-bottom: 20px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
   /*-webkit-box-shadow: 0px 0px 7px 2px rgba(0,0,0,0.75);
   -moz-box-shadow: 0px 0px 7px 2px rgba(0,0,0,0.75);
   box-shadow: 0px 0px 7px 2px rgba(0,0,0,0.75);*/
@@ -89,11 +92,12 @@ header {
 }
 
 textarea {
-  margin-top: 5px;
-  margin-bottom: 5px;
+    padding-top: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   resize: none;
   width: 500px;
-  height: 100px;
+  min-height: 50px;
   -moz-border-bottom-colors: none;
   -moz-border-left-colors: none;
   -moz-border-right-colors: none;
@@ -101,7 +105,7 @@ textarea {
   background: none;
   border: 1px solid lightgrey;
   border-radius: 5px;
-  color: #555555;
+  color: lightgrey;
   font-family: 'Roboto', sans-serif;
   font-size: 1em;
 }
@@ -110,27 +114,40 @@ textarea {
     width: 80%;
     font-size: 50px;
     margin: auto;
-    color: lightgrey;
+    color: white;
     border-bottom: 1px solid lightgrey;
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
     padding-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .input-group {
     width: 600px;
     height: auto;
     font-family: 'Roboto', sans-serif;
-    background: white;
+    background: #111;
+    background: linear-gradient(#1b1b1b, #111);
+    box-shadow: inset 0 0 0 1px #272727;
     margin: auto;
+    margin-bottom: 50px;
     padding-bottom: 20px;
     padding-top: 20px;
     border-radius: 5px;
-	box-shadow: 0 7px 6px -6px #777;
+	/*box-shadow: 0 7px 6px -6px #777;*/
 }
 
 .input-group span {
-    color: #476CB7;
+    color: lightgrey;
+}
+
+.input-group textarea {
+    padding-left: 5px;
+    background: #222;
+	background: linear-gradient(#333, #222);
+	border: 1px solid #444;
+	border-radius: 5px 0 0 5px;
+	box-shadow: 0 2px 0 #000;
 }
 
 .nametag {
@@ -138,11 +155,12 @@ textarea {
     margin: auto;
     margin-bottom: 0;
     text-align: left;
+    color: lightgrey;
 }
 
 
 textarea:focus {
-    background: none repeat scroll 0 0 #FFFFFF;
+    background: black repeat scroll 0 0 #FFFFFF;
     outline-width: 0;
 }
 
@@ -166,7 +184,8 @@ textarea:focus {
 .container {
   width: 100%;
   height: 100vh;
-  background: none;
+  background: #111;
+  background: linear-gradient(#1b1b1b, #111);
   text-align: center;
   overflow-y: scroll;
 }
@@ -195,11 +214,13 @@ textarea:focus {
 
 .nav-buttons {
   width: 100px;
-  height: 100%;
+  height: 40px;
   float: right;
+  display: flex;
+  align-items: center;
   background: none;
   text-align: center;
-  line-height: 80px;
+  justify-content: center;
   font-size: 18px;
   color: white;
   cursor: pointer;
@@ -208,7 +229,7 @@ textarea:focus {
 }
 
 .nav-buttons:hover {
-  background: rgba(255, 0, 0, 0.8);
+  border: 1px solid white;
 }
 
 .shadow {
@@ -355,10 +376,14 @@ textarea:focus {
 .small-submit-right {
     width: 125px;
     height: 35px;
-    background: #476CB7;
+    background: #222;
+	background: linear-gradient(#333, #222);
+	border: 1px solid #444;
+	border-left-color: #000;
+	box-shadow: 0 2px 0 #000;
     text-align: center;
     line-height: 35px;
-    color: white;
+    color: #c9250c;
     cursor: pointer;
     float: left;
     border-radius: 5px;
@@ -392,6 +417,63 @@ textarea:focus {
     width: 100%;
     height: 35px;
     padding-left: 10px;
+}
+
+.post-container {
+    width: 700px;
+    min-height: 100px;
+    margin: auto;
+    margin-bottom: 20px;
+    font-family: 'Roboto', sans-serif;
+    background: #111;
+    background: linear-gradient(#1b1b1b, #111);
+    box-shadow: inset 0 0 0 1px #272727;
+    position: relative;
+    color: lightgrey;
+}
+
+.avatar {
+    width: 100px;
+    height: 100px;
+    border: 1px solid white;
+    float: left;
+}
+
+.post-body {
+    width: 500px;
+    min-height: 75px;
+    padding-top: 17px;
+    float: left;
+    position: absolute;
+    bottom: 0;
+    left: 100px;
+    text-align: center;
+}
+
+.name {
+    height: 20px;
+    width: 100px;
+    float: left;
+}
+
+.timestamp-name {
+    width: 600px;
+    height: 20px;
+    position: absolute;
+    top: 0;
+    left: 100px;
+    padding-left: 5px;
+    padding-top: 5px;
+    padding-right: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.delete {
+    position: absolute;
+    bottom: 1px;
+    right: 5px;
+    cursor: pointer;
 }
 
 #button-holder {
@@ -436,5 +518,5 @@ textarea:focus {
 }
 
 #current-icon {
-  background: rgba(255, 0, 0, 0.8);
+  border: 1px solid white;
 }

@@ -2,12 +2,12 @@
 
 
     <nav>
-      <div class="nav-buttons" ui-sref="profile">Profile</div>
-      <div id ="current-icon" class="nav-buttons" ui-sref="feed">Feed</div>
       <div class="nav-buttons" ui-sref="daily">Daily</div>
+      <div id ="current-icon" class="nav-buttons" ui-sref="feed">Feed</div>
+      <div class="nav-buttons" ui-sref="profile">Profile</div>
     </nav>
 
-    <!-- <div class="page-h1">My Feed</div> -->
+    <div class="page-h1">My Feed</div>
 
 
       <div class="input-group">
@@ -18,13 +18,17 @@
                 Submit
             </div>
         </div>
-        <!-- <span class="input-group-btn">
-          <button  ng-click="postStatus(obj)">Add New</button>
-        </span> -->
       </div>
 
-    <!-- <div ng-repeat="status in statuses">
-      {{status.user.name.first}} {{status.body}} {{status.createdAt | date: short}}  <span ng-click="deleteStatus(status._id)" ng-if="currentUser._id === status.user._id">X</span>
-    </div> -->
+     <div class="post-container" ng-repeat="status in statuses">
+         <div class="avatar"></div>
+         <div class=timestamp-name>
+             <span>{{status.user.name.first}} {{status.user.name.last}}</span> <span>{{status.createdAt | date: short}}</span>
+         </div>
+         <div class="post-body">
+            {{status.body}}
+         </div>
+         <span class="delete"ng-if="currentUser._id === status.user._id" ng-click="deleteStatus(status._id)"><strong>X</strong></span>
+     </div>
 
 </main>

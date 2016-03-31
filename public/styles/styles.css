@@ -90,10 +90,14 @@
   .land-nav {
     height: 10vh;
   }
+
+  nav {
+    height: 10vh;
+  }
   .nav-buttons {
     width: 20%;
     font-size: 40px;
-    line-height: 10vh;
+    line-height: 7vh;
   }
 
   #home-icon {

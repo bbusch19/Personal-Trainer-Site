@@ -14,6 +14,7 @@
   "author": "Breiden Busch",
   "license": "ISC",
   "dependencies": {
+    "aws-sdk": "^2.2.48",
     "bcryptjs": "^2.3.0",
     "body-parser": "^1.15.0",
     "cors": "^2.7.1",

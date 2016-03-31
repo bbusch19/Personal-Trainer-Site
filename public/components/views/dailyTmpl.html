@@ -2,25 +2,36 @@
 
 
     <nav>
-      <div class="nav-buttons" ui-sref="profile">Profile</div>
-      <div class="nav-buttons" ui-sref="feed">Feed</div>
-      <div id ="current-icon" class="nav-buttons" ui-sref="daily">Daily</div>
+        <div id ="current-icon" class="nav-buttons" ui-sref="daily">Daily</div>
+        <div class="nav-buttons" ui-sref="feed">Feed</div>
+        <div class="nav-buttons" ui-sref="profile">Profile</div>
     </nav>
 
     <div class="page-h1">Daily Workout</div>
 
-    <form ng-submit="postDaily(obj)" ng-if="inputBox">
-      <div class="input-group">
-        <textarea placeholder="Post a new workout/announcement..." ng-model="obj.body"></textarea>
-        <span class="input-group-btn">
-          <button type="submit" class="btn btn-primary">Add New</button>
-        </span>
+    <div class="input-group">
+        <div class="nametag"> Post as <span>{{currentUser.name.first}}</span></div>
+      <textarea placeholder="What's on your mind?" ng-model="obj.body"></textarea>
+      <div id="button-holder">
+          <div class="small-submit-right" ng-click="postDaily(obj)">
+              Submit
+          </div>
       </div>
-    </form>
-
-    <div ng-repeat="daily in dailys">
-     {{daily.user.name.first}} {{daily.body}} {{daily.createdAt | date: short}} &nbsp&nbsp<span ng-click="deleteDaily(daily._id)" ng-if="currentUser._id === daily.user._id">X</span>
     </div>
 
+    <div class="post-container" ng-repeat="daily in dailys">
+        <div class="avatar"></div>
+        <div class=timestamp-name>
+            <span>{{daily.user.name.first}} {{daily.user.name.last}}</span> <span>{{daily.createdAt | date: short}}</span>
+        </div>
+        <div class="post-body">
+           {{daily.body}}
+        </div>
+        <span class="delete" ng-click="deleteDaily(daily._id)" ng-if="currentUser._id === daily.user._id"><strong>X</strong></span>
+    </div>
+
+
+<!-- ng-click="postDaily(obj)" -->
+<!-- ng-click="deleteDaily(daily._id)" ng-if="currentUser._id === daily.user._id" -->
 
 </main>
