@@ -5,6 +5,7 @@
         <div id ="current-icon" class="nav-buttons" ui-sref="daily">Daily</div>
         <div class="nav-buttons" ui-sref="feed">Feed</div>
         <div class="nav-buttons" ui-sref="profile">Profile</div>
+        <!-- <div class="nav-buttons" ng-click="userLogout()">Logout</div> -->
     </nav>
 
     <div class="page-h1">Daily Workout</div>
@@ -19,19 +20,27 @@
       </div>
     </div>
 
-    <div class="post-container" ng-repeat="daily in dailys">
-        <div class="avatar"></div>
-        <div class=timestamp-name>
-            <span>{{daily.user.name.first}} {{daily.user.name.last}}</span> <span>{{daily.createdAt | date: short}}</span>
-        </div>
-        <div class="post-body">
-           {{daily.body}}
-        </div>
-        <span class="delete" ng-click="deleteDaily(daily._id)" ng-if="currentUser._id === daily.user._id"><strong>X</strong></span>
+    <div class="feed" ng-repeat="daily in dailys">  <!--1 Column Feed Item Holder-->
+      <div class="feed-item blog">
+        <div class="icon-holder"><div class="icon" style="background:url({{daily.user.image}});background-size:cover;background-position:center;"></div></div>
+        <div class="text-holder col-3-5">
+          <div class="feed-title">{{daily.user.name.first}} {{daily.user.name.last}}</div>
+          <div class="feed-description">{{daily.body}}</div>
+        </div><!--End of Text Holder-->
+    <div class="post-options-holder" ng-if="delete" ng-click="deleteDaily(daily._id)">X</div><!--End Post Options Holder -->
+    <div class="comment" ng-if="currentUser._id !== daily.user._id">
+        <form>
+            <div class="comment-icon" style="background:url({{currentUser.image}});background-size:cover;background-position:center;">
+
+            </div>
+            <textarea placeholder="Post a reply..."></textarea>
+        </form>
     </div>
+    <div class="sub-comment-section">
+        
+    </div>
+  </div>
+  </div><!--End of Feed Item-->
 
-
-<!-- ng-click="postDaily(obj)" -->
-<!-- ng-click="deleteDaily(daily._id)" ng-if="currentUser._id === daily.user._id" -->
 
 </main>

@@ -3,7 +3,7 @@ var Schema = mongoose.Schema;
 
 var dailySchema = new Schema({
   user: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
-  body: {type: String, required: true}
+  body: {type: String, required: true},
 }, {timestamps: true})
 
 dailySchema.pre('find', function(next) {

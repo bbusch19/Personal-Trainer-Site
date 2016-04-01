@@ -11,7 +11,12 @@ $stateProvider
 .state('daily', {
   url: '/daily',
   templateUrl: './components/views/dailyTmpl.html',
-  controller: 'dailyCtrl'
+  controller: 'dailyCtrl',
+  // resolve: {
+  //     user: function(mainSvc) {
+  //        return mainSvc.getProfile();
+  //     }
+  // }
 })
 .state('feed', {
   url: '/feed',
