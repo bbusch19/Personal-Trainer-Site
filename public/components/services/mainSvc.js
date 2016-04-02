@@ -106,6 +106,21 @@ angular.module('personalTrainer').service('mainSvc', function($http, $state) {
     })
   }
 
+  this.postStatusComment = function(comment, id) {
+      return $http({
+          method: 'PUT',
+          data: comment,
+          url: '/api/status/comment/' + id
+      })
+  }
+
+  this.deleteStatusComment = function(id, status) {
+      return $http({
+          method: 'DELETE',
+          url: '/api/status/comment/' + id +'/'+ status
+      })
+  }
+
   this.deleteStatus = function(id) {
       return $http({
           method: 'DELETE',

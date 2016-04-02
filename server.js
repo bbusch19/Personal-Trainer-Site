@@ -132,6 +132,8 @@ app.delete('/api/comment/:id/:daily', dailyCtrl.deleteComment);
 app.post('/api/feed', feedCtrl.create);
 app.get('/api/feed', userCtrl.loggedIn, feedCtrl.read);
 app.delete('/api/feed/:id', feedCtrl.delete);
+app.put('/api/status/comment/:id', feedCtrl.updateComment);
+app.delete('/api/status/comment/:id/:status', feedCtrl.deleteComment);
 
 //PIC API
 app.post('/api/newimage', Amazon.saveImage);

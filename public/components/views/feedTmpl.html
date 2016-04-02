@@ -14,13 +14,46 @@
           <div class="nametag"> Post as <span>{{currentUser.name.first}}</span></div>
         <textarea placeholder="What's on your mind?" ng-model="obj.body"></textarea>
         <div id="button-holder">
-            <div class="small-submit-right" ng-click="postStatus(obj)">
+            <div class="small-submit-right" ng-click="postStatus(obj); getStatus()">
                 Submit
             </div>
         </div>
       </div>
 
-     <div class="post-container" ng-repeat="status in statuses">
+      <div class="feed" ng-repeat="status in statuses">  <!--1 Column Feed Item Holder-->
+        <div class="feed-item blog">
+          <div class="icon-holder"><div class="icon" style="background:url({{status.user.image}});background-size:cover;background-position:center;"></div></div>
+          <div class="text-holder col-3-5">
+            <div class="feed-title">{{status.user.name.first}} {{status.user.name.last}}</div>
+            <div class="feed-description">{{status.body}}</div>
+          </div><!--End of Text Holder-->
+      <div class="post-options-holder" ng-if="currentUser._id === status.user._id || currentUser.admin === true" ng-click="deleteStatus(status._id); getStatus()">X</div><!--End Post Options Holder -->
+      <div class="comment" ng-if="currentUser._id !== status.user._id">
+          <form ng-enter="postStatusComment(comment, status._id); getStatus()">
+              <div class="comment-icon" style="background:url({{currentUser.image}});background-size:cover;background-position:center;">
+
+              </div>
+              <textarea placeholder="Post a reply..." ng-model="comment.body"></textarea>
+          </form>
+      </div>
+      <div class="sub-comment-section">
+          <div ng-repeat="comment in status.comments">
+              <div class="sub-comment-item">
+                <div class="icon-holder"><div class="icon" style="background:url({{comment.user.image}});background-size:cover;background-position:center;"></div></div>
+                <div class="text-holder col-3-5">
+                  <div class="feed-title">{{comment.user.name.first}} {{comment.user.name.last}}</div>
+                  <div class="feed-description">{{comment.body}}</div>
+                </div><!--End of Text Holder-->
+            <div class="post-options-holder" ng-if="currentUser._id === comment.user._id || currentUser.admin === true" ng-click="deleteStatusComment(comment._id, status._id); getStatus()">X</div><!--End Post Options Holder -->
+          </div>
+      </div>
+    </div>
+    </div><!--End of Feed Item-->
+
+
+
+
+     <!-- <div class="post-container" ng-repeat="status in statuses">
          <div class="avatar" style="background:url({{status.user.image}});background-size:cover;background-position:center;"></div>
          <div class=timestamp-name>
              <span>{{status.user.name.first}} {{status.user.name.last}}</span> <span>{{status.createdAt | date: short}}</span>
@@ -29,6 +62,6 @@
             {{status.body}}
          </div>
          <span class="delete"ng-if="currentUser._id === status.user._id" ng-click="deleteStatus(status._id)"><strong>X</strong></span>
-     </div>
+     </div> -->
 
 </main>
