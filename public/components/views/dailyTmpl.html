@@ -14,7 +14,7 @@
         <div class="nametag"> Post as <span>{{currentUser.name.first}}</span></div>
       <textarea placeholder="What's on your mind?" ng-model="obj.body"></textarea>
       <div id="button-holder">
-          <div class="small-submit-right" ng-click="postDaily(obj)">
+          <div class="small-submit-right" ng-click="postDaily(obj); getDailys()">
               Submit
           </div>
       </div>
@@ -27,17 +27,25 @@
           <div class="feed-title">{{daily.user.name.first}} {{daily.user.name.last}}</div>
           <div class="feed-description">{{daily.body}}</div>
         </div><!--End of Text Holder-->
-    <div class="post-options-holder" ng-if="delete" ng-click="deleteDaily(daily._id)">X</div><!--End Post Options Holder -->
+    <div class="post-options-holder" ng-if="delete" ng-click="deleteDaily(daily._id); getDailys()">X</div><!--End Post Options Holder -->
     <div class="comment" ng-if="currentUser._id !== daily.user._id">
-        <form>
+        <form ng-enter="postComment(comment, daily._id); getDailys()">
             <div class="comment-icon" style="background:url({{currentUser.image}});background-size:cover;background-position:center;">
 
             </div>
-            <textarea placeholder="Post a reply..."></textarea>
+            <textarea placeholder="Post a reply..." ng-model="comment.body"></textarea>
         </form>
     </div>
     <div class="sub-comment-section">
-        
+        <div ng-repeat="comment in daily.comments">
+            <div class="sub-comment-item">
+              <div class="icon-holder"><div class="icon" style="background:url({{comment.user.image}});background-size:cover;background-position:center;"></div></div>
+              <div class="text-holder col-3-5">
+                <div class="feed-title">{{comment.user.name.first}} {{comment.user.name.last}}</div>
+                <div class="feed-description">{{comment.body}}</div>
+              </div><!--End of Text Holder-->
+          <div class="post-options-holder" ng-if="currentUser._id === comment.user._id || currentUser.admin === true" ng-click="deleteComment(comment._id, daily._id); getDailys()">X</div><!--End Post Options Holder -->
+        </div>
     </div>
   </div>
   </div><!--End of Feed Item-->

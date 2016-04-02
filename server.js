@@ -123,6 +123,8 @@ app.put('/api/users/:id', userCtrl.update);
 app.post('/api/daily', userCtrl.loggedIn, dailyCtrl.create);
 app.get('/api/daily', userCtrl.loggedIn, dailyCtrl.read);
 app.delete('/api/daily/:id', dailyCtrl.delete);
+app.put('/api/comment/:id', dailyCtrl.updateComment);
+app.delete('/api/comment/:id/:daily', dailyCtrl.deleteComment);
 
 ///////////////////
 //FEED API STUFF//

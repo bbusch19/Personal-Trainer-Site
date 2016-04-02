@@ -198,6 +198,7 @@ textarea {
   width: 30px;
   background: none;
   color: lightgrey;
+  margin-top: 22px;
   padding: 5px;
   transition: background 0.2s;
   cursor: pointer;
@@ -212,9 +213,45 @@ textarea {
 
 .sub-comment-section {
     width: 100%;
-    border: 1px solid white;
+    /*border: 1px solid white;*/
     float: left;
-    height: 50px;
+    height: auto;
+    padding-left: 75px;
+}
+
+.sub-comment-item {
+    display: block;
+    width: 100%;
+    transition:  0.7s;
+    overflow: auto;
+}
+
+.sub-comment-item .icon-holder{
+  width: 55px;
+  float: left;
+  margin: 21px 20px 0 25px;
+  min-height: 55px;
+  height: 100%;
+}
+.sub-comment-item .icon-holder .icon{
+  width: 55px;
+  height: 55px;
+  border-radius: 100%;
+  float: left;
+  background-image: url('https://lh3.googleusercontent.com/-Az9OhFIaxEY/AAAAAAAAAAI/AAAAAAAAAAA/iHtDLHxQMFc/photo.jpg');
+  background-size: 55px 55px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+.sub-comment-item .text-holder{
+  margin-top: 22px;
+  width: 75%;
+  float: left;
+  text-align: left;
+  border-bottom: 1px solid grey;
+}
+
+.sub-comment-item .text-holder {
+    border-bottom: none;
 }
 
 .page-h1 {

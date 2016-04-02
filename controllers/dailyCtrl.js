@@ -23,5 +23,20 @@ module.exports = {
       if (err) res.status(500).json(err);
       else res.status(200).json(response);
     })
+  },
+  updateComment: function(req, res, next) {
+      var id = req.params.id;
+      var comment = {body: req.body.body, user: req.user._id};
+      Daily.findByIdAndUpdate(id, {$push: {comments: comment}}, function(err, response) {
+          if (err) res.status(500).json(err);
+          else res.status(200).json(response);
+      })
+  },
+  deleteComment: function(req, res, next) {
+      var id = req.params.id;
+      var daily = req.params.daily;
+      Daily.findByIdAndUpdate(daily, {$pull: {comments: {_id: id}}}, function(err, response) {
+          err ? res.status(500).send(err) : res.status(200).send(response)
+      })
   }
 }
