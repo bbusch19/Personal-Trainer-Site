@@ -38,6 +38,27 @@ $scope.userLogin = function(user) {
 }
 
 
+//////////////////////
+//jQuery Animations//
+////////////////////
+
+$(document).ready(function (){
+    $("#about-button").click(function (){
+        $('html, body').animate({
+            scrollTop: $("#about-section").offset().top
+        }, 2000);
+    });
+
+    $("#social-button").click(function (){
+        $('html, body').animate({
+            scrollTop: $("#social-section").offset().top
+        }, 2000);
+    });
+
+});
+
+
+
 
 
 })

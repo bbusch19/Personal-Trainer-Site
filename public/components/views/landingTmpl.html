@@ -1,11 +1,45 @@
 <main class="main-container">
 
     <nav class="land-nav">
-      <div id="home-icon">Home</div>
-      <div class="nav-buttons" ng-click="toggleLogin(loginForm)">Login</div>
-      <div class="nav-buttons" ui-sref="feed">Social</div>
-      <div class="nav-buttons" ui-sref="daily">About</div>
+        <div class="left-nav">
+            <div id="home-icon">Home</div>
+        </div>
+        <div class="right-nav">
+            <div class="nav-buttons" id="about-button">About</div>
+            <div class="nav-buttons" id="social-button">Social</div>
+            <div class="nav-buttons" ng-click="toggleLogin(loginForm)">Login</div>
+        </div>
     </nav>
+
+    <section class="head-container">
+        <p>
+            NEVER.
+            <br />
+            STOP.
+            <br />
+            PUSHING.
+            <br />
+        </p>
+    </section>
+
+    <section class="about-section" id="about-section">
+        <div class="deena-holder">
+            <div class="deena"></div>
+        </div>
+        <div class="about-text">
+            <h1>About</h1>
+            <p>
+                Beachbody coach excited to help you achieve your fitness goals. Follow me for motivation and fitness tips and for info on free challenge groups.
+            </p>
+        </div>
+    </section>
+
+    <section class="social-section" id="social-section">
+        <a href="https://www.facebook.com/Deena-Farmer-Fitness-976166505755938/" target="_blank"><div class="social-icons social-1"></div></a>
+        <a href="https://www.instagram.com/dpandaf/" target="_blank"><div class="social-icons social-2"></div></a>
+        <a href="https://www.linkedin.com/in/deena-farmer-4052a665" target="_blank"><div class="social-icons social-4"></div>
+</a>
+    </section>
 
     <div class="curtain" ng-show="curtain" ng-click="hideAllForms(loginForm, signUp, curtain)">
 

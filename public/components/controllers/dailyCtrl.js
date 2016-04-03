@@ -37,4 +37,5 @@ $scope.deleteComment = function(id, dailyId) {
     mainSvc.deleteComment(id, dailyId);
 }
 
+
 })

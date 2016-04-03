@@ -73,14 +73,8 @@ nav {
   background: rgba(0, 0, 0, 0.8);
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
-  padding-right: 20px;
-  margin-bottom: 20px;
   display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  /*-webkit-box-shadow: 0px 0px 7px 2px rgba(0,0,0,0.75);
-  -moz-box-shadow: 0px 0px 7px 2px rgba(0,0,0,0.75);
-  box-shadow: 0px 0px 7px 2px rgba(0,0,0,0.75);*/
+  flex-direction: row;
 }
 
 header {
@@ -108,6 +102,121 @@ textarea {
   color: lightgrey;
   font-family: 'Roboto', sans-serif;
   font-size: 1em;
+}
+
+.orange {
+    color: #C9250C;
+}
+
+.left-nav {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+}
+
+.right-nav {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    justify-content: flex-end;
+    margin-right: 5px;
+}
+
+.main-nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-right: 5px;
+}
+
+.about-section {
+    width: 100%;
+    height: 450px;
+    background: white;
+    padding-top: 15px;
+    padding-right: 15px;
+    display: flex;
+    flex-direction: row;
+}
+
+.deena-holder {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.deena {
+    width: 300px;
+    height: 375px;
+    background: url('https://scontent-sjc2-1.xx.fbcdn.net/hphotos-xta1/t31.0-8/12034382_976167739089148_3349451249531489640_o.jpg') no-repeat;
+    background-size: contain;
+}
+
+.about-text {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.about-text h1 {
+    font-size: 75px;
+    font-family: 'Roboto', sans-serif;
+    color: #021c1e;
+    font-weight: 300;
+    margin-top: 0;
+    margin-bottom: 90px;
+}
+
+.about-text p {
+    font-size: 30px;
+    font-family: 'Roboto', sans-serif;
+    color: #021c1e;
+    font-weight: 300;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.social-section {
+    width: 100%;
+    height: 100px;
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.social-icons {
+    height: 50px;
+    width: 50px;
+    margin-left: 10px;
+}
+
+.social-1 {
+    background: url('./1459661504_social_media_online_facebook.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.social-2 {
+    background: url('./1459661509_social_media_online_instagram.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+
+.social-4 {
+    background: url('./1459661515_social_media_online_linked_in.png');
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 .feed{
@@ -281,7 +390,7 @@ textarea {
 }
 
 .input-group span {
-    color: lightgrey;
+    color: #C9250C;
 }
 
 .input-group textarea {
@@ -342,17 +451,19 @@ textarea:focus {
 }
 
 #home-icon {
-  width: 100px;
-  height: 100%;
-  float: left;
-  background: rgba(255, 0, 0, 0.8);
-  text-align: center;
-  line-height: 75px;
-  font-size: 18px;
-  color: white;
-  cursor: pointer;
-  margin-left:  2px;
-  transition: .5s;
+    width: 100px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    background: none;
+    text-align: center;
+    justify-content: center;
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+    border: 1px solid white;
+    margin-left:  2px;
+    transition: .5s;
 }
 
 .nav-buttons {
@@ -367,7 +478,7 @@ textarea:focus {
   font-size: 18px;
   color: white;
   cursor: pointer;
-  margin-left:  2px;
+  margin-left:  5px;
   transition: .5s;
 }
 
@@ -403,34 +514,29 @@ textarea:focus {
   line-height: 35px;
   color: white;
   margin-top: 10px;
+  cursor: pointer;
 }
 
 .edit-icon {
-    width: 5%;
-    height: 5vh;
-    background: url('./Edit-icon.png') no-repeat;
+    width: 25px;
+    height: 25px;
+    background: url('./white-edit.png') no-repeat;
     background-size: contain;
-    transition: .5s;
-}
-
-.edit-icon:hover {
-    width: 50px;
-    height: 6vh;
+    float: right;
     cursor: pointer;
 }
 
 .curtain {
   z-index: 2;
+  width: 100%;
+  height: 100vh;
   background-color: rgba(0, 0, 0, 0.7);
   position: fixed;
   top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
 }
 
 .modal {
-  z-index: 3;
+  z-index: 10;
   opacity: 1;
 }
 

@@ -1,22 +1,25 @@
 <main class="container">
 
 
-    <nav>
+    <nav class="main-nav">
         <div class="nav-buttons" ui-sref="daily">Daily</div>
         <div class="nav-buttons" ui-sref="feed">Feed</div>
         <div id ="current-icon" class="nav-buttons" ui-sref="profile">Profile</div>
     </nav>
 
     <section class="prof-pic-section">
-        <div class="prof-pic"></div>
-        <div class="edit-icon" ng-click="showEditPane(curtain, editPane)"></div>
+        <div class="edit-icon-holder">
+                <div class="edit-icon" ng-click="showEditPane(curtain, editPane)"></div>
+        </div>
+        <div class="prof-pic" style="background:url({{profile.image}});background-size:cover;background-position:center;"></div>
+        <p class="name-holder">
+            {{profile.name.first}} {{profile.name.last}}
+        </p>
+        <p class="bio">
+            {{profile.bio}}
+        </p>
     </section>
 
-    <section class="bio-section">
-        <div class="bio">
-            Bio: {{profile.bio}}
-        </div>
-    </section>
     <div>
         {{profile}}
     </div>
