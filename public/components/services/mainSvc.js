@@ -135,5 +135,12 @@ angular.module('personalTrainer').service('mainSvc', function($http, $state) {
       })
   }
 
+  this.getFeedActivity = function() {
+      return $http({
+          method: 'GET',
+          url: '/api/feed/user'
+      })
+  }
+
 
 })

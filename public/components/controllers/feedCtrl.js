@@ -1,4 +1,4 @@
-angular.module('personalTrainer').controller('feedCtrl', function($scope, mainSvc) {
+angular.module('personalTrainer').controller('feedCtrl', function($scope, mainSvc, $state) {
 
     mainSvc.getProfile().then(function(response) {
         $scope.currentUser = response.data;

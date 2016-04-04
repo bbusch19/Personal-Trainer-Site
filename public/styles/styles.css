@@ -92,7 +92,8 @@ background-position: center;}
     font-family: 'Roboto', sans-serif;
     color: lightgrey;
     border-bottom: 1px solid lightgrey;
-    /*position: relative;*/
+    margin-bottom: 20px;
+    margin-top: -15px;
 }
 
 .edit-icon-holder {

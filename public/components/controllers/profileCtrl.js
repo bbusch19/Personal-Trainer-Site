@@ -4,8 +4,12 @@ angular.module('personalTrainer').controller('profileCtrl', function($scope, mai
       if (response.data.redirect === '/landing') {
           $state.go('landing');
       }
-
       $scope.profile = response.data;
+  })
+
+  mainSvc.getFeedActivity().then(function(response) {
+      console.log(response.data);
+      $scope.feedActivity = response.data;
   })
 
   //toggle editing pane
@@ -29,7 +33,7 @@ angular.module('personalTrainer').controller('profileCtrl', function($scope, mai
       mainSvc.logout().then(function(response) {
           if (response.data.redirect === '/landing') {
               $state.go('landing');
-          } 
+          }
       })
   }
 
