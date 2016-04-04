@@ -50,7 +50,7 @@
           Sign In
         </p>
         <input class="nice-input" placeholder="email" ng-model="user.email"/>
-        <input class="nice-input" type="password" placeholder="password" ng-model="user.password"/>
+        <input class="nice-input" type="password" placeholder="password" ng-model="user.password" ng-enter="userLogin(user)"/>
         <div class="fb shadow" ng-click="userLogin(user)">
           Sign in
         </div>
@@ -67,7 +67,7 @@
           <input class="nice-input" placeholder="First Name" ng-model="newUser.name.first"/>
           <input class="nice-input" placeholder="Last Name" ng-model="newUser.name.last"/>
           <input class="nice-input" placeholder="enter an email address" ng-model="newUser.email"/>
-          <input class="nice-input" type="password" placeholder="enter a password" ng-model="newUser.password"/>
+          <input class="nice-input" type="password" placeholder="enter a password" ng-model="newUser.password" ng-enter="userLogin(newUser)"/>
           <div class="fb shadow" ng-click="createUser(newUser)">
             Sign in
           </div>

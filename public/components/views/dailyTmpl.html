@@ -20,7 +20,7 @@
       </div>
     </div>
 
-    <div class="feed" ng-repeat="daily in dailys">  <!--1 Column Feed Item Holder-->
+    <div class="feed" ng-repeat="daily in dailys | orderBy: 'createdAt': true">  <!--1 Column Feed Item Holder-->
       <div class="feed-item blog">
         <div class="icon-holder"><div class="icon" style="background:url({{daily.user.image}});background-size:cover;background-position:center;"></div></div>
         <div class="text-holder col-3-5">

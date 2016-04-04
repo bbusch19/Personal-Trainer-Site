@@ -21,7 +21,7 @@
         </div>
       </div>
 
-      <div class="feed" ng-repeat="status in statuses">  <!--1 Column Feed Item Holder-->
+      <div class="feed" ng-repeat="status in statuses | orderBy: 'createdAt': true">  <!--1 Column Feed Item Holder-->
         <div class="feed-item blog">
           <div class="icon-holder"><div class="icon" style="background:url({{status.user.image}});background-size:cover;background-position:center;"></div></div>
           <div class="text-holder col-3-5">

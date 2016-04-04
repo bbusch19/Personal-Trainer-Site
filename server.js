@@ -136,7 +136,9 @@ app.put('/api/status/comment/:id', feedCtrl.updateComment);
 app.delete('/api/status/comment/:id/:status', feedCtrl.deleteComment);
 app.get('/api/feed/user', feedCtrl.getUserStatus);
 
-//PIC API
+////////////
+//PIC API//
+//////////
 app.post('/api/newimage', Amazon.saveImage);
 
 
