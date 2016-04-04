@@ -37,5 +37,13 @@ $scope.deleteComment = function(id, dailyId) {
     mainSvc.deleteComment(id, dailyId);
 }
 
+$scope.logout = function() {
+    mainSvc.logout().then(function(response) {
+        if (response.data.redirect === '/landing') {
+            $state.go('landing');
+        }
+    })
+}
+
 
 })

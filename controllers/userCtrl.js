@@ -35,7 +35,7 @@ module.exports = {
        if (req.user) {
            res.status(200).send(req.user);
        } else {
-        res.status(200).send(null);
+        res.status(200).send({redirect: '/landing'});
        }
    }
 

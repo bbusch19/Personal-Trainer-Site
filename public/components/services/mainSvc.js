@@ -40,6 +40,13 @@ angular.module('personalTrainer').service('mainSvc', function($http, $state) {
       })
   }
 
+  this.logout = function() {
+      return $http({
+          method: 'GET',
+          url: '/logout'
+      })
+  }
+
   ////////////////////
   //DAILY API CALLS//
   ///////////////////

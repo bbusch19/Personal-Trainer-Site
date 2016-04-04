@@ -32,5 +32,13 @@ $scope.postStatusComment = function(comment, id) {
       mainSvc.deleteStatusComment(id, statusId);
   }
 
+  $scope.logout = function() {
+      mainSvc.logout().then(function(response) {
+          if (response.data.redirect === '/landing') {
+              $state.go('landing');
+          }
+      })
+  }
+
 
 })

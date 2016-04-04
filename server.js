@@ -100,7 +100,7 @@ app.post('/login', passport.authenticate('local-login', {failureRedirect: '/#/la
 app.get('/logout', function( req, res ) {
 	req.logout();
 	req.session.destroy();
-	res.redirect('/landing');
+	res.send({redirect: '/landing'});
 });
 
 app.post('/signup', passport.authenticate('local-signup', {failureRedirect: '/#/landing'}), function(req, res) {

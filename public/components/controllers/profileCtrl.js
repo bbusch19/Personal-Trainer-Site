@@ -1,6 +1,10 @@
-angular.module('personalTrainer').controller('profileCtrl', function($scope, mainSvc) {
+angular.module('personalTrainer').controller('profileCtrl', function($scope, mainSvc, $state) {
 
   mainSvc.getProfile().then(function(response) {
+      if (response.data.redirect === '/landing') {
+          $state.go('landing');
+      }
+
       $scope.profile = response.data;
   })
 
@@ -19,6 +23,14 @@ angular.module('personalTrainer').controller('profileCtrl', function($scope, mai
 
   $scope.updateProfile = function(profile) {
       mainSvc.updateProfile(profile);
+  }
+
+  $scope.logout = function() {
+      mainSvc.logout().then(function(response) {
+          if (response.data.redirect === '/landing') {
+              $state.go('landing');
+          } 
+      })
   }
 
 })

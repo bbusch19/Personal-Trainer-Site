@@ -583,6 +583,7 @@ textarea:focus {
 .info-container {
     width: 450px;
     height: 60vh;
+    overflow-y: scroll;
     padding-top: 10px;
 }
 
