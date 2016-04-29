@@ -1,12 +1,12 @@
 
 var AWS = require('aws-sdk');
-var Keys = require('../keys.js');
+// var Keys = require('../keys.js');
 
 // Hard amazon aws config
 AWS.config.update({
-    accessKeyId: Keys.awsAccessKeyID
-  , secretAccessKey: Keys.awsSecretKey
-  , region: Keys.awsRegion
+    accessKeyId: process.env.AWSACCESKEYID
+  , secretAccessKey: process.env.AWSSECRETKEY
+  , region: process.env.AWSREGION
 });
 
 var s3 = new AWS.S3();

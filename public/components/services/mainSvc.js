@@ -1,5 +1,6 @@
 angular.module('personalTrainer').service('mainSvc', function($http, $state) {
 
+var baseUrl = 'https://deena-farmer.herokuapp.com';
   ///////////////////
   //USER API CALLS//
   /////////////////
@@ -7,7 +8,7 @@ angular.module('personalTrainer').service('mainSvc', function($http, $state) {
     return $http({
       method: 'POST',
       data: user,
-      url: '/login'
+      url: baseUrl + '/login'
   }).success(function() {
       $state.go('daily');
     })
@@ -17,7 +18,7 @@ angular.module('personalTrainer').service('mainSvc', function($http, $state) {
       return $http({
           method: 'POST',
           data: newUser,
-          url: '/signup'
+          url: baseUrl + '/signup'
       }).success(function() {
           $state.go('daily');
       })
@@ -26,7 +27,7 @@ angular.module('personalTrainer').service('mainSvc', function($http, $state) {
   this.getProfile = function() {
      return $http ({
          method: 'GET',
-         url: '/api/user/current'
+         url: baseUrl + '/api/user/current'
      })
   }
 
@@ -34,7 +35,7 @@ angular.module('personalTrainer').service('mainSvc', function($http, $state) {
       return $http({
           method: 'PUT',
           data: profile,
-          url: '/api/users/' + profile._id
+          url: baseUrl + '/api/users/' + profile._id
       }).success(function() {
           $state.reload('profile');
       })
@@ -43,7 +44,7 @@ angular.module('personalTrainer').service('mainSvc', function($http, $state) {
   this.logout = function() {
       return $http({
           method: 'GET',
-          url: '/logout'
+          url: baseUrl + '/logout'
       })
   }
 
@@ -53,7 +54,7 @@ angular.module('personalTrainer').service('mainSvc', function($http, $state) {
   this.getDailys = function() {
     return $http({
       method: 'GET',
-      url: 'http://localhost:3000/api/daily'
+      url: baseUrl + '/api/daily'
   }).success(function(response) {
       if (typeof response.redirect == 'string') {
           $state.go('landing');
@@ -65,14 +66,14 @@ angular.module('personalTrainer').service('mainSvc', function($http, $state) {
     return $http({
       method: 'POST',
       data: postBody,
-      url: '/api/daily'
+      url: baseUrl + '/api/daily'
     })
   }
 
   this.deleteDaily = function(id) {
       return $http({
           method: 'DELETE',
-          url: '/api/daily/' + id
+          url: baseUrl + '/api/daily/' + id
       })
   }
 
@@ -80,14 +81,14 @@ angular.module('personalTrainer').service('mainSvc', function($http, $state) {
       return $http({
           method: 'PUT',
           data: comment,
-          url: '/api/comment/' +id
+          url: baseUrl + '/api/comment/' +id
       })
   }
 
   this.deleteComment = function(id, daily) {
       return $http({
           method: 'DELETE',
-          url: 'api/comment/' + id +'/'+ daily
+          url: baseUrl + 'api/comment/' + id +'/'+ daily
       })
   }
 
@@ -97,7 +98,7 @@ angular.module('personalTrainer').service('mainSvc', function($http, $state) {
   this.getStatus = function() {
     return $http({
       method: 'GET',
-      url: "http://localhost:3000/api/feed"
+      url: baseUrl + "/api/feed"
     }).success(function(response) {
         if (typeof response.redirect == 'string') {
             $state.go('landing');
@@ -109,7 +110,7 @@ angular.module('personalTrainer').service('mainSvc', function($http, $state) {
     return $http({
       method: 'POST',
       data: status,
-      url: '/api/feed'
+      url: baseUrl + '/api/feed'
     })
   }
 
@@ -117,28 +118,28 @@ angular.module('personalTrainer').service('mainSvc', function($http, $state) {
       return $http({
           method: 'PUT',
           data: comment,
-          url: '/api/status/comment/' + id
+          url: baseUrl + '/api/status/comment/' + id
       })
   }
 
   this.deleteStatusComment = function(id, status) {
       return $http({
           method: 'DELETE',
-          url: '/api/status/comment/' + id +'/'+ status
+          url: baseUrl + '/api/status/comment/' + id +'/'+ status
       })
   }
 
   this.deleteStatus = function(id) {
       return $http({
           method: 'DELETE',
-          url: '/api/feed/' + id
+          url: baseUrl + '/api/feed/' + id
       })
   }
 
   this.getFeedActivity = function() {
       return $http({
           method: 'GET',
-          url: '/api/feed/user'
+          url: baseUrl + '/api/feed/user'
       })
   }
 
