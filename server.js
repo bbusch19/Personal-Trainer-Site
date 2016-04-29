@@ -144,6 +144,6 @@ app.post('/api/newimage', Amazon.saveImage);
 
 
 
-app.listen(port, function() {
-  console.log('There\'s a party on port ' + port);
+app.listen(process.env.PORT, function() {
+  console.log('There\'s a party on port');
 })
