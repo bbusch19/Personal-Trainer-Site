@@ -35,7 +35,7 @@ var baseUrl = 'https://deena-farmer.herokuapp.com';
       return $http({
           method: 'PUT',
           data: profile,
-          url: baseUrl + '/api/users/' + profile._id
+          url: '/api/users/' + profile._id
       }).success(function() {
           $state.reload('profile');
       })
@@ -54,7 +54,7 @@ var baseUrl = 'https://deena-farmer.herokuapp.com';
   this.getDailys = function() {
     return $http({
       method: 'GET',
-      url: baseUrl + '/api/daily'
+      url: '/api/daily'
   }).success(function(response) {
       if (typeof response.redirect == 'string') {
           $state.go('landing');
@@ -66,14 +66,14 @@ var baseUrl = 'https://deena-farmer.herokuapp.com';
     return $http({
       method: 'POST',
       data: postBody,
-      url: baseUrl + '/api/daily'
+      url: '/api/daily'
     })
   }
 
   this.deleteDaily = function(id) {
       return $http({
           method: 'DELETE',
-          url: baseUrl + '/api/daily/' + id
+          url: '/api/daily/' + id
       })
   }
 
@@ -81,14 +81,14 @@ var baseUrl = 'https://deena-farmer.herokuapp.com';
       return $http({
           method: 'PUT',
           data: comment,
-          url: baseUrl + '/api/comment/' +id
+          url: '/api/comment/' +id
       })
   }
 
   this.deleteComment = function(id, daily) {
       return $http({
           method: 'DELETE',
-          url: baseUrl + 'api/comment/' + id +'/'+ daily
+          url: 'api/comment/' + id +'/'+ daily
       })
   }
 
@@ -98,7 +98,7 @@ var baseUrl = 'https://deena-farmer.herokuapp.com';
   this.getStatus = function() {
     return $http({
       method: 'GET',
-      url: baseUrl + "/api/feed"
+      url: "/api/feed"
     }).success(function(response) {
         if (typeof response.redirect == 'string') {
             $state.go('landing');
@@ -110,7 +110,7 @@ var baseUrl = 'https://deena-farmer.herokuapp.com';
     return $http({
       method: 'POST',
       data: status,
-      url: baseUrl + '/api/feed'
+      url: '/api/feed'
     })
   }
 
@@ -118,28 +118,28 @@ var baseUrl = 'https://deena-farmer.herokuapp.com';
       return $http({
           method: 'PUT',
           data: comment,
-          url: baseUrl + '/api/status/comment/' + id
+          url: '/api/status/comment/' + id
       })
   }
 
   this.deleteStatusComment = function(id, status) {
       return $http({
           method: 'DELETE',
-          url: baseUrl + '/api/status/comment/' + id +'/'+ status
+          url: '/api/status/comment/' + id +'/'+ status
       })
   }
 
   this.deleteStatus = function(id) {
       return $http({
           method: 'DELETE',
-          url: baseUrl + '/api/feed/' + id
+          url: '/api/feed/' + id
       })
   }
 
   this.getFeedActivity = function() {
       return $http({
           method: 'GET',
-          url: baseUrl + '/api/feed/user'
+          url: '/api/feed/user'
       })
   }
 
