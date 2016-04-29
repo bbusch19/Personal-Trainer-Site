@@ -16,16 +16,6 @@ var port = 3000;
 var app = express();
 
 
-///////////////////////////////
-//CONNECTING TO THE DATABASE//
-/////////////////////////////
-mongoose.connect(process.env.MONGODB_URI, function(err) {
-  if (err) throw err;
-});
-mongoose.connection.once('open', function() {
-  console.log('Connected to MongoDB');
-});
-
 
 ///////////////
 //LOGIN AUTH//
@@ -83,7 +73,7 @@ app.use(bodyParser.json({limit: '50mb'}));
 app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
 app.use(express.static(__dirname + '/public'));
 app.use(cors());
-app.use(session({secret: process.env.SESSION_SECRET, resave: false, saveUninitialized: false}));
+app.use(session({secret: process.env.SESSIONSECRET, resave: false, saveUninitialized: false}));
 
 // Initialize Passport and restore authentication state, if any, from the
 // session.
@@ -142,6 +132,15 @@ app.get('/api/feed/user', feedCtrl.getUserStatus);
 app.post('/api/newimage', Amazon.saveImage);
 
 
+///////////////////////////////
+//CONNECTING TO THE DATABASE//
+/////////////////////////////
+mongoose.connect(process.env.MONGODB_URI, function(err) {
+  if (err) throw err;
+});
+mongoose.connection.once('open', function() {
+  console.log('Connected to MongoDB');
+});
 
 
 app.listen(process.env.PORT, function() {
